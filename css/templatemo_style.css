@@ -250,11 +250,11 @@ hr {
 }
 
 .main-menu ul li a:hover {
-    color: #39b8d4;
+    color: #da593f;
 }
 
 .main-menu ul li.active {
-    background: #39b8d4;
+    background: #da593f;
 }
 
 .main-menu ul li.active a {
@@ -292,7 +292,7 @@ a.toggle-menu {
 }
 
 .menu-responsive ul li.active a {
-    color: #39b8d4;
+    color: #da593f;
 }
 
 .flexslider {
@@ -339,7 +339,7 @@ a.toggle-menu {
 }
 
 .flex-caption a.slider-btn {
-    background: #39b8d4;
+    background: #da593f;
     color: #fff;
     text-transform: uppercase;
     font-size: 14px;
@@ -350,7 +350,7 @@ a.toggle-menu {
 }
 
 .flex-caption a.slider-btn:hover {
-    background: #39b8d4;
+    background: #da593f;
 }
 
 a.flex-prev,a.flex-next {
@@ -476,7 +476,7 @@ h3.widget-title {
 }
 
 .list-item .list-thumb .title {
-    background-color: #39b8d4;
+    background-color: #da593f;
     text-transform: uppercase;
     font-size: 22px;
     font-weight: 600;
@@ -494,7 +494,7 @@ h3.widget-title {
 }
 
 .list-item .list-content h5 {
-    color: #39b8d4;
+    color: #da593f;
     font-weight: 600;
     font-size: 14px;
     margin: 15px 0 5px 0;
@@ -509,7 +509,7 @@ h3.widget-title {
 
 .list-item .list-content a.price-btn {
     display: block;
-    background-color: #39b8d4;
+    background-color: #da593f;
     color: #fff;
     padding: 12px;
     text-align: center;
@@ -520,7 +520,7 @@ h3.widget-title {
 }
 
 .list-item .list-content a.price-btn:hover {
-    background-color: #39b8d4;
+    background-color: #da593f;
 }
 
 .owl-next,.owl-prev {
@@ -529,7 +529,7 @@ h3.widget-title {
     margin-top: -20px;
     width: 40px;
     height: 40px;
-    background-color: #39b8d4;
+    background-color: #da593f;
     color: #fff;
     text-align: center;
     line-height: 40px;
@@ -597,7 +597,7 @@ h3.widget-title {
 .service-item .service-icon {
     float: left;
     margin-right: 20px;
-    background: #39b8d4;
+    background: #da593f;
     color: #fff;
     font-size: 1.5em;
     width: 70px;
@@ -622,7 +622,7 @@ h3.widget-title {
 
 h4.consult-title {
     font-size: 18px;
-    color: #39b8d4;
+    color: #da593f;
     font-weight: 300;
     margin: 20px 0 20px 0;
 }
@@ -633,7 +633,7 @@ h4.consult-title {
 }
 
 .post-small .post-date {
-    background-color: #39b8d4;
+    background-color: #da593f;
     color: #fff;
     width: 70px;
     height: 70px;
@@ -672,7 +672,7 @@ h4.consult-title {
 }
 
 .post-small .post-content span {
-    color: #39b8d4;
+    color: #da593f;
     font-size: 18px;
     font-weight: 300;
     margin-bottom: 10px;
@@ -684,7 +684,7 @@ h4.consult-title {
 }
 
 .act-btn {
-    background: #39b8d4;
+    background: #da593f;
     position: relative;
     min-height: 120px;
     height: 120px;
@@ -699,12 +699,12 @@ h4.consult-title {
     line-height: 120px;
     text-align: center;
     color: #fff;
-    background: #39b8d4;
+    background: #da593f;
     font-size: 3em;
 }
 
 .act-btn a.link:hover {
-    background: #39b8d4;
+    background: #da593f;
 }
 
 .act-btn .inner .price {
@@ -791,7 +791,7 @@ h4.consult-title {
 
 .ticket-item a.ticket-btn {
     margin-top: 25px;
-    background: #39b8d4;
+    background: #da593f;
     color: #fff;
     padding: 12px;
     display: block;
@@ -802,7 +802,7 @@ h4.consult-title {
 }
 
 .ticket-item a.ticket-btn:hover {
-    background: #39b8d4;
+    background: #da593f;
 }
 
 .partner-list {
@@ -889,7 +889,7 @@ div.contact-form textarea {
 
 div.contact-form input.mainBtn {
     border: 0;
-    background: #39b8d4;
+    background: #da593f;
     color: #fff;
     text-transform: uppercase;
     font-weight: 700;
@@ -917,13 +917,13 @@ div.contact-form input.mainBtn {
 .social-icons li a {
     width: 36px;
     height: 36px;
-    color: #39b8d4;
+    color: #da593f;
     text-align: center;
     line-height: 36px;
 }
 
 .social-icons li a:hover {
-    background: #39b8d4;
+    background: #da593f;
     color: #fff;
 }
 
