@@ -1,3 +1,11 @@
+:root{
+  --form-height:550px;
+  --form-width: 900px;
+  /*  Sea Green */
+  --left-color: #e65430;
+  /*  Light Blue  */
+  --right-color: #ebe155;
+}
 
 body, html{
   width: 100%;
