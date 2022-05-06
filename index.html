@@ -224,7 +224,29 @@ http://www.templatemo.com/tm-409-travel
             </div> <!-- /.row -->
         </div> <!-- /.container -->
 
-		<div class="middle-content"></div>
+		<div class="middle-content">
+		 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+                        <link rel="stylesheet" type="text/css" href="./style.css" />
+                        <script type="module" src="./index.js"></script>    
+                      <body>
+                        <h2>À SUA VOLTA </h2>
+                        <!--The div element for the map -->
+                        <div id="map"></div>
+                    
+                        <!-- 
+                         The `defer` attribute causes the callback to execute after the full HTML
+                         document has been parsed. For non-blocking uses, avoiding race conditions,
+                         and consistent behavior across browsers, consider loading using Promises
+                         with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+                        -->
+                        <script
+                          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+                          defer
+                        ></script>
+		
+		
+		</div>
 
         <div class="partner-list">
             <div class="container">
@@ -275,6 +297,8 @@ http://www.templatemo.com/tm-409-travel
                             
                             </span>
                         </div>
+
+                       
                    
                 </div> <!-- /.row -->
             </div> <!-- /.container -->
@@ -285,6 +309,7 @@ http://www.templatemo.com/tm-409-travel
         <script src="js/bootstrap.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/mapa.js"></script>
         <!-- templatemo 409 travel -->  
     </body>
 </html>
