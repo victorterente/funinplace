@@ -86,7 +86,7 @@ http://www.templatemo.com/tm-409-travel
   <div id="formContent">
     <!-- Tabs Titles -->
     <h2 class="active"> Sign In </h2>
-    <h2 class="inactive underlineHover">Sign Up </h2>
+    <h2 class="inactive">Sign Up</h2>
 
     <!-- Icon -->
     <div class="fadeIn first"> </div>
@@ -97,6 +97,24 @@ http://www.templatemo.com/tm-409-travel
       <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
       <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
+    
+    <label for="gender"> Select you gender</label>
+<select name="gender">
+	<option value="none" selected>Gender</option>
+	<option value="male">Male</option>
+	<option value="female">Female</option>
+	<option value="other">other</option>
+</select>
+    <!-- Register form-->
+    <form>
+        <input type="text" id="nome" class="fadeIn second" name="Register" placeholder="nome">
+        <input type="text" id="password" class="fadeIn third" name="Register" placeholder="password">
+        <input type="text" id="email" class="fadeIn fourth" name="Register" placeholder="E-mail">
+        <input type="date" id="dateofbirth" class="fadeIn fourth" name="Register" placeholder="Data de Nascimento">
+        <input type="radio" id="genero" class="fadeIn fourth" name="gender" value="male"> 
+        <input type="radio" id="genero" class="fadeIn fourth" name="gender" value="female"> 
+        <input type="submit" class="fadeIn fourth" value="Register">
+      </form>
 
     <!-- Remind Passowrd -->
     <div id="formFooter">

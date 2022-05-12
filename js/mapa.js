@@ -1,19 +1,20 @@
 var markers = [];
 
-async function initMap() {
-  //Map options
+// Initialize and add the map
+function initMap() 
+{
   let mapOptions = {
-      zoom: 17,
-      mapTypeId: 'roadmap',
-      mapTypeControlOptions:{
-          mapTypeIds:[]
-      },
-      mapId: 'f7dc6b907125f67f'
+    center: new google.maps.LatLng('38.708524', '-9.1601855'),
+    zoom: 17,
+    mapTypeId: 'roadmap',
+    mapTypeControlOptions:{
+        mapTypeIds:[]
+    },
+    mapId: '52f30d26d6afc56a'
 
-  }
-  //link map options to actual map
-  let map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
+}
+let map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  
   const infowindow = new google.maps.InfoWindow()
 
   const infoWindoGeolocation = new google.maps.InfoWindow()
@@ -67,25 +68,27 @@ async function initMap() {
     }
 
   //tenho que mudar o url
-  const api_url2='https://cors-anywhere.herokuapp.com/https://vivaotejo.herokuapp.com/api/eventos'
+  const api_url2='https://cors-anywhere.herokuapp.com/https://funinplace.herokuapp.com/tl/1'
   
   //funcao para obter discotecas
   async function getDisco(){
       const response=await fetch(api_url2);
       const discoteca=await response.json();
-
+      
+  
       console.log(discoteca);
 
       for (i = 0; i < discoteca.length; i++) {
+        markers.push(discoteca[i]);
           marker = new google.maps.Marker({
               position: new google.maps.LatLng(discoteca[i].lat, discoteca[i].long),
               map: map
           });
 
-          marker.setIcon('../images/icons8-disco-ball-48.png')
+          marker.setIcon('./images/icons8-disco-ball-48.png')
           google.maps.event.addListener(marker, 'click', (function(marker, i) {
               return function() {
-                  infowindow.setContent(discoteca[i].eventos_name);
+                  infowindow.setContent(discoteca[i].local_nome);
                   infowindow.open(map, marker);
               }
           })(marker, i));
@@ -94,7 +97,7 @@ async function initMap() {
   getDisco();
 
   //tenho que mudar o url
-  const api_url3='https://cors-anywhere.herokuapp.com/https://vivaotejo.herokuapp.com/api/eventos'
+  const api_url3='https://cors-anywhere.herokuapp.com/https://funinplace.herokuapp.com/tl/2'
   
   //funcao para obter discotecas
   async function getRestaurantes(){
@@ -104,16 +107,16 @@ async function initMap() {
       console.log(restaurant);
 
       for (i = 0; i < restaurant.length; i++) {
-          marker = new google.maps.Marker({
+        markers.push(restaurant[i]);  
+        marker = new google.maps.Marker({
               position: new google.maps.LatLng(restaurant[i].lat, restaurant[i].long),
               map: map,
-              markers.push(restaurant[i])
           });
 
-          marker.setIcon('../images/restaurant.png')
+          marker.setIcon('./images/restaurant.png')
           google.maps.event.addListener(marker, 'click', (function(marker, i) {
               return function() {
-                  infowindow.setContent(restaurant[i].eventos_name);
+                  infowindow.setContent(restaurant[i].local_nome);
                   infowindow.open(map, marker);
               }
           })(marker, i));
@@ -122,35 +125,7 @@ async function initMap() {
   getRestaurantes();
 
   
-  //tenho que mudar o url
-  const api_url4='https://cors-anywhere.herokuapp.com/https://vivaotejo.herokuapp.com/api/eventos'
-  
-  //funcao para obter discotecas
-  async function getBares(){
-      const response=await fetch(api_url4);
-      const bares=await response.json();
-
-      console.log(bares);
-
-      for (i = 0; i < bares.length; i++) {
-          marker = new google.maps.Marker({
-              position: new google.maps.LatLng(bares[i].lat, bares[i].long),
-              map: map
-          });
-
-          marker.setIcon('../images/bar.png')
-          google.maps.event.addListener(marker, 'click', (function(marker, i) {
-              return function() {
-                  infowindow.setContent(bares[i].eventos_name);
-                  infowindow.open(map, marker);
-              }
-          })(marker, i));
-      }
-  }
-  getBares();
-
-   //tenho que mudar o url
-   const api_url5='https://cors-anywhere.herokuapp.com/https://vivaotejo.herokuapp.com/api/eventos'
+   const api_url5='https://cors-anywhere.herokuapp.com/https://funinplace.herokuapp.com/tl/3'
   
    //funcao para obter discotecas
    async function getMuseu(){
@@ -160,52 +135,35 @@ async function initMap() {
        console.log(museu);
  
        for (i = 0; i < museu.length; i++) {
+        markers.push(museu[i]);
            marker = new google.maps.Marker({
                position: new google.maps.LatLng(museu[i].lat, museu[i].long),
                map: map
            });
  
-           marker.setIcon('../images/museu.png')
+           marker.setIcon('./images/museu.png')
            google.maps.event.addListener(marker, 'click', (function(marker, i) {
                return function() {
-                   infowindow.setContent(museu[i].eventos_name);
+                   infowindow.setContent(museu[i].local_nome);
                    infowindow.open(map, marker);
                }
            })(marker, i));
        }
    }
    getMuseu();
-
-  //tenho que mudar o url
-  const api_url6='https://cors-anywhere.herokuapp.com/https://vivaotejo.herokuapp.com/api/eventos'
   
-  //funcao para obter discotecas
-  async function getMonumentos(){
-      const response=await fetch(api_url6);
-      const monumentos=await response.json();
-
-      console.log(monumentos);
-
-      for (i = 0; i < monumentos.length; i++) {
-          marker = new google.maps.Marker({
-              position: new google.maps.LatLng(monumentos[i].lat, monumentos[i].long),
-              map: map
-          });
-
-          marker.setIcon('../images/museu.png')
-          google.maps.event.addListener(marker, 'click', (function(marker, i) {
-              return function() {
-                  infowindow.setContent(monumentos[i].eventos_name);
-                  infowindow.open(map, marker);
-              }
-          })(marker, i));
-      }
+  console.log(markers);
+  
+  function filterDiscotecas()
+  {
+    /*for (i = 0 ; i < markers.length ; i++){
+      if(markers[i].tipolocal_nome == 'Discoteca/Bar')
+      
+    }*/
   }
-  getMonumentos();
+  document.getElementById("Discoteca/Bar").onclick = filterDiscotecas;
 
-  function filterDiscotecas(){
-    for ( i = 0 ; i< google.maps.)
-  }
 
 
 }
+window.initMap = initMap;

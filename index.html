@@ -22,6 +22,7 @@ http://www.templatemo.com/tm-409-travel
         <link rel="stylesheet" href="css/templatemo_style.css">
 
         <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+        <script src="js/mapa.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -233,46 +234,16 @@ http://www.templatemo.com/tm-409-travel
                         <h2>À SUA VOLTA </h2>
                         <!--The div element for the map -->
                         <div id="map"></div>
-                    
-                        <!-- 
-                         The `defer` attribute causes the callback to execute after the full HTML
-                         document has been parsed. For non-blocking uses, avoiding race conditions,
-                         and consistent behavior across browsers, consider loading using Promises
-                         with https://www.npmjs.com/package/@googlemaps/js-api-loader.
-                        -->
                         <script
-                          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+                          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0t4XTIo2BD1WyVDqOXSI3UTjc7JSwv7E&callback=initMap&v=weekly"
                           defer
                         ></script>
 		
 		
 		</div>
-
-        <div class="partner-list">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-2 col-sm-4 col-xs-6">
-                        <div class="partner-item"> </div> <!-- /.partner-item -->
-                    </div> <!-- /.col-md-2 -->
-                    <div class="col-md-2 col-sm-4 col-xs-6">
-                        <div class="partner-item"> </div> <!-- /.partner-item -->
-                    </div> <!-- /.col-md-2 -->
-                    <div class="col-md-2 col-sm-4 col-xs-6">
-                        <div class="partner-item"> </div> <!-- /.partner-item -->
-                    </div> <!-- /.col-md-2 -->
-                    <div class="col-md-2 col-sm-4 col-xs-6">
-                        <div class="partner-item"> </div> <!-- /.partner-item -->
-                    </div> <!-- /.col-md-2 -->
-                    <div class="col-md-2 col-sm-4 col-xs-6">
-                        <div class="partner-item"> </div> <!-- /.partner-item -->
-                    </div> <!-- /.col-md-2 -->
-                    <div class="col-md-2 col-sm-4 col-xs-6">
-                        <div class="partner-item last"> </div> <!-- /.partner-item -->
-                    </div> <!-- /.col-md-2 -->
-                </div> <!-- /.row -->
-            </div> <!-- /.container -->
-        </div> <!-- /.partner-list -->
-
+        <br>
+        <button id="Discoteca/bar">Discotecas/Bares</button>
+        <div></div>
 		
 
         <div class="site-footer">
@@ -309,7 +280,7 @@ http://www.templatemo.com/tm-409-travel
         <script src="js/bootstrap.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
-        <script src="js/mapa.js"></script>
+       
         <!-- templatemo 409 travel -->  
     </body>
 </html>
