@@ -224,5 +224,38 @@ let map = new google.maps.Map(document.getElementById('map'), mapOptions);
      }
  });
 
+ //rotas 
+ function calculateAndDisplayRoute(directionsService, directionsRenderer){
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+        },
+      );
+    } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow1, map.getCenter());
+    }
+
+
+    directionsService
+    .route({
+        origin : pos,
+        destination: marker,
+
+    })
+
+    .then((response) => {
+        directionsRenderer.setDirections(response);
+    })
+    .catch((e) => window.alert("Direction request failed due to" + status));
+
+}
+document.getElementById("btn").onclick(calculateAndDisplayRoute());
+
 }
 window.initMap = initMap;
