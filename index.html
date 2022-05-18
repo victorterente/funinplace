@@ -242,15 +242,110 @@ http://www.templatemo.com/tm-409-travel
 
         <link rel="stylesheet" type="text/css" href="./style.css" />
         <script type="module" src="./index.js"></script>
+        <style>
 
+            .controls {
+                 margin-top: 16px;
+                 border: 1px solid transparent;
+                 border-radius: 2px 0 0 2px;
+                 box-sizing: border-box;
+                 -moz-box-sizing: border-box;
+                 height: 32px;
+                 outline: none;
+                 box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            }
+      
+      
+      
+            /* CSS */
+             .button{
+                 background-color: #0095ff;
+                 border: 1px solid transparent;
+                 border-radius: 3px;
+                 box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+                 box-sizing: border-box;
+                 color: #fff;
+                 cursor: pointer;
+                 display: inline-block;
+                 font-family: -apple-syst5em,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+                 font-size: 13px;
+                 font-weight: 400;
+                 line-height: 1.15385;
+                 margin: 0;
+                 outline: none;
+                 padding: 8px .8em;
+                 position: relative;
+                 text-align: center;
+                 text-decoration: none;
+                 user-select: none;
+                 -webkit-user-select: none;
+                 touch-action: manipulation;
+                 vertical-align: baseline;
+                 white-space: nowrap;
+             }
+      
+            .button:hover,
+            .button:focus {
+                background-color: #07c;
+            }
+      
+            .button:focus {
+                box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+            }
+      
+            .button:active {
+                background-color: #0064bd;
+                box-shadow: none;
+            }
+            .controls {
+              margin-top: 16px;
+              border: 1px solid transparent;
+              border-radius: 2px 0 0 2px;
+              box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              height: 32px;
+              outline: none;
+              box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            }
+      
+            #pac-input {
+              background-color: #fff;
+              font-family: Roboto;
+              font-size: 15px;
+              font-weight: 300;
+              margin-left: 12px;
+              padding: 0 11px 0 13px;
+              text-overflow: ellipsis;
+              width: 400px;
+            }
+      
+            #pac-input:focus {
+              border-color: #4d90fe;
+            }
+      
+            .pac-container {
+              font-family: Roboto;
+            }
+      
+            #type-selector {
+              color: #fff;
+              background-color: #4d90fe;
+              padding: 5px 11px 0px 11px;
+            }
+      
+            #type-selector label {
+              font-family: Roboto;
+              font-size: 13px;
+              font-weight: 300;
+            }
+            
+</style>
         <body>
             <!--The div element for the map -->
-            <input id="searchInput" class="controls" type="text" placeholder="Enter a location"> 
+            <input id="pac-input" class="controls" type="text" placeholder="Search Box">
             <div id="map">
             </div>
-            <script
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0t4XTIo2BD1WyVDqOXSI3UTjc7JSwv7E&callback=initMap&v=weekly"
-                defer></script>
+            <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAeXJMCul0dV0qlry9bSDTx9K9dKRLJZSY&callback=initMap"></script>
 
 
     </div>
