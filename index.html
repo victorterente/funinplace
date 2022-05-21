@@ -1,19 +1,13 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
+
 <html class="no-js">
-<!--<![endif]-->
+
 
 <head>
     <meta charset="utf-8">
     <title>Travel Responsive Web Template</title>
     <meta name="description" content="">
-    <!-- 
-Travel Template
-http://www.templatemo.com/tm-409-travel
--->
+  
     <meta name="viewport" content="width=device-width">
     <meta name="author" content="templatemo">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300' rel='stylesheet' type='text/css'>
@@ -29,9 +23,7 @@ http://www.templatemo.com/tm-409-travel
 </head>
 
 <body>
-    <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-        <![endif]-->
+    
 
     <div class="site-header">
         <div class="container">
@@ -351,7 +343,39 @@ http://www.templatemo.com/tm-409-travel
 
     </div>
     <br> 
-    <button id="btn">CalcularRota</button>
+    <script src="js/mapa.js"></script>
+    <script>
+    function calcRoute() {
+    
+        const directionsService = new google.maps.DirectionsService();
+        //var pos3;
+        var pos4;
+        //var start = document.getElementById('start').value;
+        //var end = document.getSelection.LatLng;
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+              (position) => {
+                const pos3 = {
+                  lat: position.coords.latitude,
+                  lng: position.coords.longitude,
+                };
+              },
+              pos4 = pos3
+            );
+          } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+          }
+          
+        var request = {
+          origin: pos4,
+          destination: marcadorselecionado,
+          travelMode: 'DRIVING'
+        };
+        directionsService.route(request);
+      }
+     // document.getElementById("btn").onclick = calcRoute;</script>
+    <button  onclick="calcRoute()" id="btn">CalcularRota</button>
     <button id="Discoteca/bar">Discotecas/Bares</button>
     <div></div>
 
@@ -365,25 +389,14 @@ http://www.templatemo.com/tm-409-travel
                             <img src="images/FIP LOGO.jpeg" alt="" width="100">
                         </a>
                     </div>
-                </div> <!-- /.col-md-4 -->
-
-                <span>
-
-
-
-
-                    <!--
-                            | Design: <a rel="nofollow" href="http://www.templatemo.com" target="_parent">templatemo</a>
-                            -->
-
-                </span>
+                </div> 
             </div>
 
 
 
-        </div> <!-- /.row -->
-    </div> <!-- /.container -->
-    </div> <!-- /.site-footer -->
+        </div> 
+    </div> 
+    </div> 
 
     <script src="js/vendor/jquery-1.11.0.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
@@ -391,7 +404,6 @@ http://www.templatemo.com/tm-409-travel
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
 
-    <!-- templatemo 409 travel -->
 </body>
 
 </html>

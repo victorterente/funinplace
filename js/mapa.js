@@ -1,4 +1,5 @@
 var markers = [];
+var marcadorselecionado;
 
 // Initialize and add the map
 function initMap() 
@@ -12,8 +13,8 @@ function initMap()
     },
     mapId: '52f30d26d6afc56a'
 
-}
-let map = new google.maps.Map(document.getElementById('map'), mapOptions);
+ }
+ let map = new google.maps.Map(document.getElementById('map'), mapOptions);
   
   const infowindow = new google.maps.InfoWindow()
 
@@ -87,6 +88,7 @@ let map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
           marker.setIcon('./images/icons8-disco-ball-48.png')
           google.maps.event.addListener(marker, 'click', (function(marker, i) {
+              marcadorselecionado = marker;
               return function() {
                   infowindow.setContent(discoteca[i].local_nome);
                   infowindow.open(map, marker);
@@ -115,6 +117,7 @@ let map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
           marker.setIcon('./images/restaurant.png')
           google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            marcadorselecionado = marker;
               return function() {
                   infowindow.setContent(restaurant[i].local_nome);
                   infowindow.open(map, marker);
@@ -143,6 +146,7 @@ let map = new google.maps.Map(document.getElementById('map'), mapOptions);
  
            marker.setIcon('./images/museu.png')
            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            marcadorselecionado = JSON.stringify(marker.LatLng);
                return function() {
                    infowindow.setContent(museu[i].local_nome);
                    infowindow.open(map, marker);
@@ -153,6 +157,7 @@ let map = new google.maps.Map(document.getElementById('map'), mapOptions);
    getMuseu();
   
   console.log(markers);
+  console.log(marcadorselecionado);
   
   /*function filterDiscotecas()
   {
@@ -213,49 +218,36 @@ let map = new google.maps.Map(document.getElementById('map'), mapOptions);
      infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
      infowindow.open(map, marker1);
 
-     // Location details
-     for (var i = 0; i < place.address_components.length; i++) {
-         if(place.address_components[i].types[0] == 'postal_code'){
-             document.getElementById('postal_code').innerHTML = place.address_components[i].long_name;
-         }
-         if(place.address_components[i].types[0] == 'country'){
-             document.getElementById('country').innerHTML = place.address_components[i].long_name;
-         }
-     }
  });
 
  //rotas 
- function calculateAndDisplayRoute(directionsService, directionsRenderer){
-
+ 
+function calcRoute() {
+    
+    const directionsService = new google.maps.DirectionsService();
+    var pos3;
+    //var start = document.getElementById('start').value;
+    //var end = document.getSelection.LatLng;
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          };
-        },
-      );
-    } else {
-      // Browser doesn't support Geolocation
-      handleLocationError(false, infoWindow1, map.getCenter());
-    }
-
-
-    directionsService
-    .route({
-        origin : pos,
-        destination: marker,
-
-    })
-
-    .then((response) => {
-        directionsRenderer.setDirections(response);
-    })
-    .catch((e) => window.alert("Direction request failed due to" + status));
-
-}
-document.getElementById("btn").onclick(calculateAndDisplayRoute());
-
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            pos3 = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude,
+            };
+          },
+        );
+      } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+      }
+    var request = {
+      origin: pos3,
+      destination: marcadorselecionado,
+      travelMode: 'DRIVING'
+    };
+    directionsService.route(request);
+  }
+ // document.getElementById("btn").onclick = calcRoute;
 }
 window.initMap = initMap;
