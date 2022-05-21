@@ -1,5 +1,6 @@
 var markers = [];
 var marcadorselecionado;
+var pos;
 
 // Initialize and add the map
 function initMap() 
@@ -30,7 +31,7 @@ function initMap()
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
-                    const pos = {
+                    pos = {
                         lat: position.coords.latitude,
                         lng: position.coords.longitude,
                     };
@@ -222,7 +223,7 @@ function initMap()
 
  //rotas 
  
-function calcRoute() {
+/*function calcRoute() {
     
     const directionsService = new google.maps.DirectionsService();
     var pos3;
@@ -248,6 +249,6 @@ function calcRoute() {
     };
     directionsService.route(request);
   }
- // document.getElementById("btn").onclick = calcRoute;
+ // document.getElementById("btn").onclick = calcRoute;*/
 }
 window.initMap = initMap;

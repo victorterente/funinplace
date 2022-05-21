@@ -348,11 +348,10 @@
     function calcRoute() {
     
         const directionsService = new google.maps.DirectionsService();
-        //var pos3;
-        var pos4;
+        var pos3;
         //var start = document.getElementById('start').value;
         //var end = document.getSelection.LatLng;
-        if (navigator.geolocation) {
+        /*if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
               (position) => {
                 const pos3 = {
@@ -360,21 +359,24 @@
                   lng: position.coords.longitude,
                 };
               },
-              pos4 = pos3
             );
-          } else {
+          } 
+          else 
+          {
             // Browser doesn't support Geolocation
             handleLocationError(false, infoWindow, map.getCenter());
-          }
+          }*/
           
-        var request = {
-          origin: pos4,
+        var request = 
+        {
+          origin: pos.lat , pos.lng,
           destination: marcadorselecionado,
           travelMode: 'DRIVING'
         };
         directionsService.route(request);
       }
-     // document.getElementById("btn").onclick = calcRoute;</script>
+     //document.getElementById("btn").onclick = calcRoute;</script>
+    
     <button  onclick="calcRoute()" id="btn">CalcularRota</button>
     <button id="Discoteca/bar">Discotecas/Bares</button>
     <div></div>
