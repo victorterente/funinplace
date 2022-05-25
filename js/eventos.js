@@ -1,6 +1,6 @@
-var PessoaId = sessionStorage.getItem("PessoaId");
+/*var PessoaId = sessionStorage.getItem("PessoaId");
 var AdminId = sessionStorage.getItem("AdminId");
-var monitor = sessionStorage.getItem("monitorId");
+var monitor = sessionStorage.getItem("monitorId");*/
 
 window.onload = async function () {
   try {
@@ -10,7 +10,7 @@ window.onload = async function () {
       dataType: "json",
     });
 
-    let html10 = `<ul class="navbar-nav ms-auto">
+    /*let html10 = `<ul class="navbar-nav ms-auto">
       <li class="nav-item mx-3">
           <a class="nav-link text-white" href="/eventos.html"
               >CAMPOS</a
@@ -69,14 +69,14 @@ window.onload = async function () {
               >
           </li>
       </ul>`
-      }
+      }*/
       
           
 
     let html = "<ul class='list-group'>";
     for (let campo of campos) {
-      html += `<li class="list-group-item"><h5>${campo.evento_nome}</h5><button onclick="toCampo(${campo.evento_id})" class="btn btn-success">
-            Ver Evento
+      html += `<li class="list-group-item"><h5>${campo.evento_nome}</h5><button onclick="toCampo(${campo.evento_id})" class="price-btn">
+            Mais informacoes
         </button></li>`;
     }
     document.getElementById("campos").innerHTML = html;
@@ -85,7 +85,7 @@ window.onload = async function () {
   }
 };
 
-function toCampo(id) {
+/*function toCampo(id) {
   sessionStorage.setItem("campoId", id);
   window.location = "campo.html";
-}
+}*/
