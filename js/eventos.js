@@ -4,7 +4,7 @@ var monitor = sessionStorage.getItem("monitorId");*/
 
 window.onload = async function () {
   try {
-    let campos = await $.ajax({
+    let eventos = await $.ajax({
       url: "https://cors-anywhere.herokuapp.com/https://funinplace.herokuapp.com/evento",
       method: "get",
       dataType: "json",
@@ -74,17 +74,17 @@ window.onload = async function () {
           
 
     let html = "<ul class='list-group'>";
-    for (let campo of campos) {
+    for (let evento of eventos) {
       html += `<li class="widget-item">
-            <h7>${campo.evento_nome}</h7>
+            <h7>${evento.evento_nome}</h7>
                 <p></p>
                 <p></p>
                 <p></p>
-                <h1>${campo.evento_desc}</h1>
-                <a href = ""class="slider-btn">INFO</a>
+                <h1>${evento.evento_desc}</h1>
+                <a href = "" class="slider-btn">INFO</a>
                 </li>`;
     }
-    document.getElementById("campos").innerHTML = html;
+    document.getElementById("evento").innerHTML = html;
   } catch (err) {
     console.log(err);
   }

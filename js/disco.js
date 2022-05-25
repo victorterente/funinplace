@@ -16,7 +16,7 @@ window.onload = async function () {
                 <p></p>
                 <p></p>
                 <h1>${disco.local_desc}</h1>
-                <a href = ""class="slider-btn">INFO</a>
+                <a href = "" class="slider-btn">INFO</a>
                 </li>`;
       }
       document.getElementById("disco").innerHTML = html1;
