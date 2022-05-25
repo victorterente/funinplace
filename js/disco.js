@@ -19,7 +19,7 @@ window.onload = async function () {
                     </div> <!-- /.sample-thumb -->
                     <h4 class="consult-title">${disco.local_morada}</h4>
                     <p>${disco.local_desc}</p>
-                    <a href="#" class="ticket-btn" id = "${disco.local_id}" onClick="reply_click(this.id)">Mais Informações</a>
+                    <a href="infopage.html" class="ticket-btn" id = "${disco.local_id}" onClick="reply_click(this.id)">Mais Informações</a>
                     </div> <!-- /.widget-item -->
                 </div> <!-- /.col-md-4 -->
 `;
