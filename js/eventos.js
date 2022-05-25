@@ -75,9 +75,14 @@ window.onload = async function () {
 
     let html = "<ul class='list-group'>";
     for (let campo of campos) {
-      html += `<li class="list-group-item"><h5>${campo.evento_nome}</h5><button onclick="toCampo(${campo.evento_id})" class="price-btn">
-            Mais informacoes
-        </button></li>`;
+      html += `<li class="widget-item">
+            <h7>${campo.evento_nome}</h7>
+                <p></p>
+                <p></p>
+                <p></p>
+                <h1>${campo.evento_desc}</h1>
+                <a href = ""class="slider-btn">INFO</a>
+                </li>`;
     }
     document.getElementById("campos").innerHTML = html;
   } catch (err) {
