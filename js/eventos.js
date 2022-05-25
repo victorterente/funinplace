@@ -73,17 +73,22 @@ window.onload = async function () {
       
           
 
-    let html = "<ul class='list-group'>";
-    for (let evento of eventos) {
-      html += `<li class="widget-item">
-            <h7>${evento.evento_nome}</h7>
-                <p></p>
-                <p></p>
-                <p></p>
-                <h1>${evento.evento_desc}</h1>
-                <a href = "" class="slider-btn">INFO</a>
-                </li>`;
-    }
+      let html = "<div class='ticket-list'>";
+      for (let evento of eventos) {
+        html += `<div class="row"><!-- first row -->     
+          <div class="col-md-6"><!-- first column -->
+                <div class="widget-item">
+                    <h3 class="widget-title">${evento.evento_nome}</h3>
+                    <div class="sample-thumb">
+                        <img src="images/about_1.jpg" alt="about us" title="about us">
+                    </div> <!-- /.sample-thumb -->
+                    <h4 class="consult-title">${evento.evento_morada}</h4>
+                    <p>${evento.evento_desc}</p>
+                    <a href="#" class="ticket-btn">Mais Informações</a>
+                    </div> <!-- /.widget-item -->
+                </div> <!-- /.col-md-4 -->
+`;
+      }
     document.getElementById("evento").innerHTML = html;
   } catch (err) {
     console.log(err);
