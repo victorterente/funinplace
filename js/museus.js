@@ -19,7 +19,7 @@ window.onload = async function () {
                     </div> <!-- /.sample-thumb -->
                     <h4 class="consult-title">${museu.local_morada}</h4>
                     <p>${museu.local_desc}</p>
-                    <a href="#" class="ticket-btn">Mais Informações</a>
+                    <a href="infopage.html" class="ticket-btn" id ="${museu.local_id}" onclick="Id(${museu.local_id})" >Mais Informações</a>
                     </div> <!-- /.widget-item -->
                 </div> <!-- /.col-md-4 -->
 `;
@@ -29,3 +29,8 @@ window.onload = async function () {
       console.log(err);
     }
   };
+
+  function Id(id) {
+    sessionStorage.setItem("Id", id);
+    window.location = "infopage.html";
+  }
