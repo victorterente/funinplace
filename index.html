@@ -344,40 +344,7 @@
     </div>
     <br> 
     <script src="js/mapa.js"></script>
-    <script>
-    function calcRoute() {
-    
-        const directionsService = new google.maps.DirectionsService();
-        var pos3;
-        //var start = document.getElementById('start').value;
-        //var end = document.getSelection.LatLng;
-        /*if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-              (position) => {
-                const pos3 = {
-                  lat: position.coords.latitude,
-                  lng: position.coords.longitude,
-                };
-              },
-            );
-          } 
-          else 
-          {
-            // Browser doesn't support Geolocation
-            handleLocationError(false, infoWindow, map.getCenter());
-          }*/
-          
-        var request = 
-        {
-          origin: pos.lat , pos,
-          destination: marcadorselecionado,
-          travelMode: 'DRIVING'
-        };
-        directionsService.route(request);
-      }
-     //document.getElementById("btn").onclick = calcRoute;</script>
-    
-    <button  onclick="calcRoute()" id="btn">CalcularRota</button>
+    <button onclick="calculateAndDisplayRoute()" id="btn">CalcularRota</button>
     <button id="Discoteca/bar">Discotecas/Bares</button>
     <div></div>
 

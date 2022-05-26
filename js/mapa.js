@@ -1,10 +1,11 @@
 var markers = [];
 var marcadorselecionado;
-var pos;
 
 // Initialize and add the map
 function initMap() 
 {
+    const directionsRenderer = new google.maps.DirectionsRenderer();
+    const directionsService = new google.maps.DirectionsService();
   let mapOptions = {
     center: new google.maps.LatLng('38.708524', '-9.1601855'),
     zoom: 17,
@@ -59,15 +60,10 @@ function initMap()
         }
     });
 
-
-    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(
-            browserHasGeolocation
-                ? "Error: The Geolocation service failed."
-                : "Error: Your browser doesn't support geolocation."
-        );
-    }
+    directionsRenderer.setMap(map);
+    calculateAndDisplayRoute(directionsService, directionsRenderer);
+    //document.getElementById("btn").onclick(calculateAndDisplayRoute(directionsService, directionsRenderer));
+    
 
   //tenho que mudar o url
   const api_url2='https://cors-anywhere.herokuapp.com/https://funinplace.herokuapp.com/tl/1'
@@ -220,35 +216,51 @@ function initMap()
      infowindow.open(map, marker1);
 
  });
+}
 
  //rotas 
+ var pos;
+ var pos1 = {
+    lat: 38.768738843853676, 
+    lng: -9.094049857109368,
+  };
+ function calculateAndDisplayRoute(directionsService, directionsRenderer){
  
-/*function calcRoute() {
-    
-    const directionsService = new google.maps.DirectionsService();
-    var pos3;
-    //var start = document.getElementById('start').value;
-    //var end = document.getSelection.LatLng;
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            pos3 = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude,
-            };
-          },
-        );
-      } else {
-        // Browser doesn't support Geolocation
-        handleLocationError(false, infoWindow, map.getCenter());
-      }
-    var request = {
-      origin: pos3,
-      destination: marcadorselecionado,
-      travelMode: 'DRIVING'
-    };
-    directionsService.route(request);
-  }
- // document.getElementById("btn").onclick = calcRoute;*/
+     if (navigator.geolocation) {
+       navigator.geolocation.getCurrentPosition(
+         (position) => {
+           pos = {
+             lat: position.coords.latitude,
+             lng: position.coords.longitude,
+           };
+         },
+       );
+     } else {
+       // Browser doesn't support Geolocation
+       handleLocationError(false, infoWindow, map.getCenter());
+     }
+ 
+     console.log(pos)
+ 
+     directionsService
+     .route({
+         origin: pos,
+         destination: pos1,
+ 
+ 
+     })
+ 
+     .then((response) => {
+         directionsRenderer.setDirections(response);
+     })
+ }
+
+ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(
+        browserHasGeolocation
+            ? "Error: The Geolocation service failed."
+            : "Error: Your browser doesn't support geolocation."
+    );
 }
 window.initMap = initMap;
