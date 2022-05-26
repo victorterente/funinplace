@@ -1,11 +1,13 @@
 var markers = [];
 var marcadorselecionado;
-
+var map;
+var directionsService;
+var directionsRenderer;
 // Initialize and add the map
 function initMap() 
 {
-    const directionsRenderer = new google.maps.DirectionsRenderer();
-    const directionsService = new google.maps.DirectionsService();
+    directionsRenderer = new google.maps.DirectionsRenderer();
+    directionsService = new google.maps.DirectionsService();
   let mapOptions = {
     center: new google.maps.LatLng('38.708524', '-9.1601855'),
     zoom: 17,
@@ -17,7 +19,6 @@ function initMap()
 
  }
  let map = new google.maps.Map(document.getElementById('map'), mapOptions);
-  
   const infowindow = new google.maps.InfoWindow()
 
   const infoWindoGeolocation = new google.maps.InfoWindow()
@@ -32,23 +33,17 @@ function initMap()
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
-                    pos = {
+                    const posicao = {
                         lat: position.coords.latitude,
                         lng: position.coords.longitude,
                     };
                     markerGeolocation = new google.maps.Marker({
-                        position: new google.maps.LatLng(pos.lat, pos.lng),
+                        position: new google.maps.LatLng(posicao.lat, posicao.lng),
                         map: map
                     });
 
-                    markerGeolocation.setIcon('../images/localizacaoatual.png')
-                    google.maps.event.addListener(markerGeolocation, 'click', (function(marker) {
-                        return function() {
-                            infowindow.setContent("Localização atual");
-                            infowindow.open(map, marker);
-                        }
-                    })(markerGeolocation));
-                    map.setCenter(pos);
+                    
+                    map.setCenter(posicao);
                 },
                 () => {
                     handleLocationError(true, infoWindoGeolocation, map.getCenter());
@@ -60,9 +55,6 @@ function initMap()
         }
     });
 
-    directionsRenderer.setMap(map);
-    calculateAndDisplayRoute(directionsService, directionsRenderer);
-    //document.getElementById("btn").onclick(calculateAndDisplayRoute(directionsService, directionsRenderer));
     
 
   //tenho que mudar o url
@@ -85,7 +77,7 @@ function initMap()
 
           marker.setIcon('./images/icons8-disco-ball-48.png')
           google.maps.event.addListener(marker, 'click', (function(marker, i) {
-              marcadorselecionado = marker;
+            marcadorselecionado = JSON.stringify(marker.LatLng);
               return function() {
                   infowindow.setContent(discoteca[i].local_nome);
                   infowindow.open(map, marker);
@@ -114,7 +106,7 @@ function initMap()
 
           marker.setIcon('./images/restaurant.png')
           google.maps.event.addListener(marker, 'click', (function(marker, i) {
-            marcadorselecionado = marker;
+            marcadorselecionado = JSON.stringify(marker.LatLng);
               return function() {
                   infowindow.setContent(restaurant[i].local_nome);
                   infowindow.open(map, marker);
@@ -156,13 +148,6 @@ function initMap()
   console.log(markers);
   console.log(marcadorselecionado);
   
-  /*function filterDiscotecas()
-  {
-
-  }
-  document.getElementById("Discoteca/Bar").onclick = filterDiscotecas;*/
-
-
    //GEo Coding search bar
 
    var input = document.getElementById('pac-input');
@@ -216,16 +201,26 @@ function initMap()
      infowindow.open(map, marker1);
 
  });
+
+    directionsRenderer.setMap(map);
+    calculateAndDisplayRoute(directionsService, directionsRenderer);
+    document.getElementById("btn").addEventListener("click", () => {
+        calculateAndDisplayRoute(directionsService, directionsRenderer)
+    });
+    
 }
 
+
+
  //rotas 
- var pos;
- var pos1 = {
-    lat: 38.768738843853676, 
-    lng: -9.094049857109368,
-  };
+var pos;
+var pos1 = {
+  lat: 38.768738843853676, 
+  lng: -9.094049857109368,
+};
+
  function calculateAndDisplayRoute(directionsService, directionsRenderer){
- 
+    
      if (navigator.geolocation) {
        navigator.geolocation.getCurrentPosition(
          (position) => {
@@ -243,16 +238,17 @@ function initMap()
      console.log(pos)
  
      directionsService
-     .route({
-         origin: pos,
-         destination: pos1,
- 
- 
-     })
- 
-     .then((response) => {
-         directionsRenderer.setDirections(response);
-     })
+    .route({
+        origin: pos,
+        destination: pos1,
+        travelMode: 'DRIVING',
+        
+
+    })
+
+    .then((response) => {
+        directionsRenderer.setDirections(response);
+    })
  }
 
  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
