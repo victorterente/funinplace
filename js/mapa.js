@@ -1,8 +1,18 @@
 var markers = [];
 var marcadorselecionado;
-var map;
-var directionsService;
-var directionsRenderer;
+var pos;
+var pos1 = {
+  lat: 38.768738843853676, 
+  lng: -9.094049857109368,
+};
+
+var pos2 = {
+    lat: 38.76, 
+    lng: -9.0,
+  };
+
+var directionsRenderer
+var directionsService 
 // Initialize and add the map
 function initMap() 
 {
@@ -54,102 +64,90 @@ function initMap()
             handleLocationError(false, infoWindoGeolocation, map.getCenter());
         }
     });
+  
 
+
+    //funcao para obter discotecas
+async function getDisco(){
+    const api_url2='https://cors-anywhere.herokuapp.com/https://funinplace.herokuapp.com/tl/1'
+    const response=await fetch(api_url2);
+    const discoteca=await response.json();
     
 
-  //tenho que mudar o url
-  const api_url2='https://cors-anywhere.herokuapp.com/https://funinplace.herokuapp.com/tl/1'
-  
-  //funcao para obter discotecas
-  async function getDisco(){
-      const response=await fetch(api_url2);
-      const discoteca=await response.json();
-      
-  
-      console.log(discoteca);
+    console.log(discoteca);
 
-      for (i = 0; i < discoteca.length; i++) {
-        markers.push(discoteca[i]);
-          marker = new google.maps.Marker({
-              position: new google.maps.LatLng(discoteca[i].lat, discoteca[i].long),
-              map: map
-          });
-
-          marker.setIcon('./images/icons8-disco-ball-48.png')
-          google.maps.event.addListener(marker, 'click', (function(marker, i) {
-            marcadorselecionado = JSON.stringify(marker.LatLng);
-              return function() {
-                  infowindow.setContent(discoteca[i].local_nome);
-                  infowindow.open(map, marker);
-              }
-          })(marker, i));
-      }
-  }
-  getDisco();
-
-  //tenho que mudar o url
-  const api_url3='https://cors-anywhere.herokuapp.com/https://funinplace.herokuapp.com/tl/2'
-  
-  //funcao para obter discotecas
-  async function getRestaurantes(){
-      const response=await fetch(api_url3);
-      const restaurant=await response.json();
-
-      console.log(restaurant);
-
-      for (i = 0; i < restaurant.length; i++) {
-        markers.push(restaurant[i]);  
+    for (i = 0; i < discoteca.length; i++) {
         marker = new google.maps.Marker({
-              position: new google.maps.LatLng(restaurant[i].lat, restaurant[i].long),
-              map: map,
-          });
+            position: new google.maps.LatLng(discoteca[i].lat, discoteca[i].long),
+            map: map
+        });
 
-          marker.setIcon('./images/restaurant.png')
-          google.maps.event.addListener(marker, 'click', (function(marker, i) {
-            marcadorselecionado = JSON.stringify(marker.LatLng);
-              return function() {
-                  infowindow.setContent(restaurant[i].local_nome);
-                  infowindow.open(map, marker);
-              }
-          })(marker, i));
-      }
+        marker.setIcon('./images/icons8-disco-ball-48.png')
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                marcadorselecionado = new google.maps.LatLng(discoteca[i].lat, discoteca[i].long);
+                infowindow.setContent(discoteca[i].local_nome);
+                infowindow.open(map, marker);
+            }
+        })(marker, i));
+    }
+}
+
+//funcao para obter restaurante
+async function getRestaurantes(){
+  const api_url3='https://cors-anywhere.herokuapp.com/https://funinplace.herokuapp.com/tl/2'
+  const response=await fetch(api_url3);
+  const restaurant=await response.json();
+
+  console.log(restaurant);
+
+  for (i = 0; i < restaurant.length; i++) {
+    marker = new google.maps.Marker({
+          position: new google.maps.LatLng(restaurant[i].lat, restaurant[i].long),
+          map: map,
+      });
+
+      marker.setIcon('./images/restaurant.png')
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+          return function() {
+              marcadorselecionado = new google.maps.LatLng(restaurant[i].lat, restaurant[i].long);
+              infowindow.setContent(restaurant[i].local_nome);
+              infowindow.open(map, marker);
+          }
+      })(marker, i));
   }
+}
+
+//funcao para obter museu
+async function getMuseu(){
+  const api_url5='https://cors-anywhere.herokuapp.com/https://funinplace.herokuapp.com/tl/3'
+  const response=await fetch(api_url5);
+  const museu=await response.json();
+
+  console.log(museu);
+
+  for (i = 0; i < museu.length; i++) {
+      marker = new google.maps.Marker({
+          position: new google.maps.LatLng(museu[i].lat, museu[i].long),
+          map: map
+      });
+
+      marker.setIcon('./images/museu.png')
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+          return function() {
+              marcadorselecionado = new google.maps.LatLng(museu[i].lat, museu[i].long);
+              infowindow.setContent(museu[i].local_nome);
+              infowindow.open(map, marker);
+          }
+      })(marker, i));
+  }
+}
+  getDisco();
   getRestaurantes();
-
+  getMuseu();
   
-   const api_url5='https://cors-anywhere.herokuapp.com/https://funinplace.herokuapp.com/tl/3'
   
-   //funcao para obter discotecas
-   async function getMuseu(){
-       const response=await fetch(api_url5);
-       const museu=await response.json();
- 
-       console.log(museu);
- 
-       for (i = 0; i < museu.length; i++) {
-        markers.push(museu[i]);
-           marker = new google.maps.Marker({
-               position: new google.maps.LatLng(museu[i].lat, museu[i].long),
-               map: map
-           });
- 
-           marker.setIcon('./images/museu.png')
-           google.maps.event.addListener(marker, 'click', (function(marker, i) {
-            marcadorselecionado = JSON.stringify(marker.LatLng);
-               return function() {
-                   infowindow.setContent(museu[i].local_nome);
-                   infowindow.open(map, marker);
-               }
-           })(marker, i));
-       }
-   }
-   getMuseu();
-  
-  console.log(markers);
-  console.log(marcadorselecionado);
-  
-   //GEo Coding search bar
-
+   //search bar
    var input = document.getElementById('pac-input');
    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
@@ -202,24 +200,65 @@ function initMap()
 
  });
 
-    directionsRenderer.setMap(map);
-    calculateAndDisplayRoute(directionsService, directionsRenderer);
-    document.getElementById("btn").addEventListener("click", () => {
-        calculateAndDisplayRoute(directionsService, directionsRenderer)
-    });
+ /*function calculateAndDisplayRoute(directionsService, directionsRenderer){
     
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+        },
+      );
+    } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
+
+    console.log(pos)
+
+    directionsService
+   .route({
+       origin: pos,
+       destination: marcadorselecionado,
+       travelMode: 'DRIVING',
+       
+
+   })
+
+   .then((response) => {
+       directionsRenderer.setDirections(response);
+   })
+ }
+
+    directionsRenderer.setMap(map);
+
+    document.getElementById("botaorota").onclick = calculateAndDisplayRoute(directionsService, directionsRenderer);
+*/
+function calcRoute() {
+    var request = {
+        origin: pos1,
+        destination: pos2,
+        
+        travelMode: 'DRIVING',
+    };
+    directionsService.route(request, function(response, status) {
+      if (status == 'OK') {
+        directionsRenderer.setDirections(response);
+      }
+    });
+  }
+  directionsRenderer.setMap(map);
+
 }
+window.initMap = initMap;
 
 
 
- //rotas 
-var pos;
-var pos1 = {
-  lat: 38.768738843853676, 
-  lng: -9.094049857109368,
-};
 
- function calculateAndDisplayRoute(directionsService, directionsRenderer){
+
+ async function calculateAndDisplayRoute(directionsService, directionsRenderer){
     
      if (navigator.geolocation) {
        navigator.geolocation.getCurrentPosition(
@@ -240,7 +279,7 @@ var pos1 = {
      directionsService
     .route({
         origin: pos,
-        destination: pos1,
+        destination: marcadorselecionado,
         travelMode: 'DRIVING',
         
 
@@ -259,4 +298,5 @@ var pos1 = {
             : "Error: Your browser doesn't support geolocation."
     );
 }
-window.initMap = initMap;
+  
+
