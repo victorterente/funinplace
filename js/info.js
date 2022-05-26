@@ -1,9 +1,10 @@
-
-window.onload = async function (id) {
+var discoId;
+window.onload = async function () {
     try {
-         var id1 = toString()
+        discoId = sessionStorage.getItem("discoId");
+         
       let informations = await $.ajax({
-        url:("https://cors-anywhere.herokuapp.com/https://funinplace.herokuapp.com/local/"+id1),
+        url:("https://cors-anywhere.herokuapp.com/https://funinplace.herokuapp.com/local/"+discoId),
         method: "get",
         dataType: "json",
       });
