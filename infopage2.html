@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>Services - Travel</title>
+        <meta name="description" content="">
+
+        <meta name="viewport" content="width=device-width">
+		<meta name="author" content="templatemo">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300' rel='stylesheet' type='text/css'>
+        
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/font-awesome.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/templatemo_misc.css">
+        <link rel="stylesheet" href="css/templatemo_style.css">
+
+        <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+        <div class="site-header">
+            <div class="container">
+                <div class="main-header">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <div class="logo">
+                                <a href="#">
+                                    <img src="images/FIP LOGO.jpeg" alt="fip html5 template" title="fip html5 template" style="height: 60px">
+                                </a>
+                            </div> <!-- /.logo -->
+                        </div> <!-- /.col-md-4 -->
+                        <div class="col-sm-6 col-xs-2 locais col-lg-9">
+                            <div class="main-menu">
+                                <ul class="visible-lg visible-md">
+									<li><a href="dashboard/admin.html">Dashboard</a></li>
+                                    <li><a href="index.html">Home</a></li>
+									<li><a href="services.html">Restaurants</a></li>
+                                    <li><a href="events.html">Eventos</a></li>
+                                	<li><a href="about.html">Night</a></li>
+									<li><a href="locais.html">Locais</a></li>
+                                    <li><a href="contact.html">Login</a></li>
+                                </ul>
+                                <a href="#" class="toggle-menu visible-sm visible-xs">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            </div> <!-- /.main-menu -->
+                        </div> <!-- /.col-md-8 -->
+                    </div> <!-- /.row -->
+                </div> <!-- /.main-header -->
+                <div class="row">
+                    <div class="col-md-12 visible-sm visible-xs">
+                        <div class="menu-responsive">
+                            <ul>
+								<li><a href="dashboard/admin.html">Dashboard</a></li>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="services.html">Services</a></li>
+                                <li><a href="events.html">Events</a></li>
+                                <li><a href="about.html">About Us</a></li>
+								<li><a href="locais.html">Locais</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div> <!-- /.menu-responsive -->
+                    </div> <!-- /.col-md-12 -->
+                </div> <!-- /.row -->
+            </div> <!-- /.container -->
+        </div> <!-- /.site-header -->
+
+        <div class="page-top" id="templatemo_services">
+        </div> <!-- /.page-header -->
+
+        <div class="middle-content">
+            <div class="container">
+                <script src="js/mapaevento.js"></script>
+                
+                <script src="js\info2.js"></script>
+                <div><main id="info2"></main></div>
+            </div> <!-- /.container -->
+        </div> <!-- /.middle-content -->
+        <script>
+        function calcRoute() 
+    {
+        if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+        },
+      );
+    } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
+        var request = {
+            origin: pos,
+            destination: evento,
+        };
+        directionsService.route(request, function(response, status) {
+          if (status == 'OK') {
+            directionsRenderer.setDirections(response);
+          }
+        });
+      }
+      </script>
+      <button onclick="calcRoute()" id="botaorota">Traçar caminho até evento</button>
+        
+        
+        <div id="map2"></div>
+                <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAeXJMCul0dV0qlry9bSDTx9K9dKRLJZSY&callback=initMap2"></script>
+        
+
+
+
+
+        <div class="site-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4">
+                        <div class="footer-logo">
+                            <a href="index.html">
+                                <img src="images/FIP LOGO.jpeg" alt="" width="30%" height="30%">
+                            </a>
+                        </div>
+                    </div> <!-- /.col-md-4 -->
+                    <div class="col-md-4 col-sm-4">
+                        <div class="copyright">
+                            <span>Copyright &copy; 2022 <a href="#">FunInPlace</a></span>
+                        </div>
+                    </div> <!-- /.col-md-4 -->
+                </div> <!-- /.row -->
+            </div> <!-- /.container -->
+        </div> <!-- /.site-footer -->
+
+        <script src="js/vendor/jquery-1.11.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+    
+         
+     </body>
+</html>

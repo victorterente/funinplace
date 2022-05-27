@@ -17,11 +17,11 @@ window.onload = async function () {
                 <div class="widget-item">
                     <h3 class="widget-title">${evento.evento_nome}</h3>
                     <div class="sample-thumb">
-                        <img src="images/about_1.jpg" alt="about us" title="about us">
+                        <img src="${evento.evento_img}" alt="about us" title="about us">
                     </div> <!-- /.sample-thumb -->
                     <h4 class="consult-title">${evento.evento_morada}</h4>
                     <p>${evento.evento_desc}</p>
-                    <a href="infopage.html" class="ticket-btn" id ="${evento.evento_id}" onclick="Id(${evento.evento_id})" >Mais Informações</a>
+                    <a href="infopage2.html" class="ticket-btn" id ="${evento.evento_id}" onclick="Id(${evento.evento_id})" >Mais Informações</a>
                     </div> <!-- /.widget-item -->
                 </div> <!-- /.col-md-4 -->
 `;
@@ -34,5 +34,5 @@ window.onload = async function () {
 
 function Id(id) {
     sessionStorage.setItem("Id", id);
-    window.location = "infopage.html";
+    window.location = "infopage2.html";
   }
