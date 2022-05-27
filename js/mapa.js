@@ -200,42 +200,7 @@ async function getMuseu(){
 
  });
 
- /*function calculateAndDisplayRoute(directionsService, directionsRenderer){
-    
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          };
-        },
-      );
-    } else {
-      // Browser doesn't support Geolocation
-      handleLocationError(false, infoWindow, map.getCenter());
-    }
-
-    console.log(pos)
-
-    directionsService
-   .route({
-       origin: pos,
-       destination: marcadorselecionado,
-       travelMode: 'DRIVING',
-       
-
-   })
-
-   .then((response) => {
-       directionsRenderer.setDirections(response);
-   })
- }
-
-    directionsRenderer.setMap(map);
-
-    document.getElementById("botaorota").onclick = calculateAndDisplayRoute(directionsService, directionsRenderer);
-*/
+ 
 function calcRoute() {
     var request = {
         origin: pos1,
