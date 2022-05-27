@@ -24,6 +24,7 @@ http://www.templatemo.com/tm-409-travel
 		
 
         <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+        <script src="js\login.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -84,46 +85,60 @@ http://www.templatemo.com/tm-409-travel
 
        <div class="wrapper fadeInDown">
   <div id="formContent">
-    <!-- Tabs Titles -->
-    <h2 class="active"> Sign In </h2>
-    <h2 class="inactive">Sign Up</h2>
-
-    <!-- Icon -->
-    <div class="fadeIn first"> </div>
-
-    <!-- Login Form -->
-    <form>
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
-    </form>
-    
-    <label for="gender"> Select you gender</label>
-<select name="gender">
-	<option value="none" selected>Gender</option>
-	<option value="male">Male</option>
-	<option value="female">Female</option>
-	<option value="other">other</option>
-</select>
-    <!-- Register form-->
-    <form>
-        <input type="text" id="nome" class="fadeIn second" name="Register" placeholder="nome">
-        <input type="text" id="password" class="fadeIn third" name="Register" placeholder="password">
-        <input type="text" id="email" class="fadeIn fourth" name="Register" placeholder="E-mail">
-        <input type="date" id="dateofbirth" class="fadeIn fourth" name="Register" placeholder="Data de Nascimento">
-        <input type="radio" id="genero" class="fadeIn fourth" name="gender" value="male"> 
-        <input type="radio" id="genero" class="fadeIn fourth" name="gender" value="female"> 
-        <input type="submit" class="fadeIn fourth" value="Register">
-      </form>
-
-    <!-- Remind Passowrd -->
-    <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
+    <div class="login-wrap">
+        <div class="login-html">
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+            <div class="login-form">
+                <div class="sign-in-htm">
+                    <div class="group">
+                        <label for="user" class="label">Email</label>
+                        <input id="EmailForm" name ="EmailForm" type="email" class="input">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Password</label>
+                        <input id="PasswordForm" name ="PasswordForm" type="password" class="input" data-type="password">
+                    </div>
+                    <div class="group">
+                        <input id="check" type="checkbox" class="check" checked>
+                        <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                    </div>
+                    <div class="group">
+                        <input type="submit" id="btnLogin" class="button" value="Sign In">
+                    </div>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <a href="#forgot">Forgot Password?</a>
+                    </div>
+                </div>
+                <div class="sign-up-htm">
+                    <div class="group">
+                        <label for="user" class="label">Username</label>
+                        <input id="user" type="text" class="input">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Password</label>
+                        <input id="pass" type="password" class="input" data-type="password">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Repeat Password</label>
+                        <input id="pass" type="password" class="input" data-type="password">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Email Address</label>
+                        <input id="pass" type="text" class="input">
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" value="Sign Up">
+                    </div>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <label for="tab-1">Already Member?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-  </div>
-</div>
-			
 
    
         <div class="site-footer">
