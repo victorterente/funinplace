@@ -96,6 +96,7 @@
         var request = {
             origin: pos,
             destination: evento,
+            travelMode: 'DRIVING'
         };
         directionsService.route(request, function(response, status) {
           if (status == 'OK') {

@@ -22,13 +22,16 @@ window.onload = async function () {
                   </div> <!-- /.sample-thumb -->
                   <h4 class="consult-title">${information.evento_morada}</h4>
                   <p>${information.evento_desc}</p>
+                  <p>${information.lat}</p>
+                  <p>${information.long}</p>
+
                   </div> <!-- /.widget-item -->
               </div> <!-- /.col-md-4 -->
         `;
         evento = 
         {
-            lat: information.lat,
-            lng: information.long
+            lat: Number(information.lat),
+            lng:    Number(information.long),
         };
           
         console.log(information.lat);  
