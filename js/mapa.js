@@ -201,20 +201,8 @@ async function getMuseu(){
  });
 
  
-function calcRoute() {
-    var request = {
-        origin: pos1,
-        destination: pos2,
-        
-        travelMode: 'DRIVING',
-    };
-    directionsService.route(request, function(response, status) {
-      if (status == 'OK') {
-        directionsRenderer.setDirections(response);
-      }
-    });
-  }
-  directionsRenderer.setMap(map);
+
+directionsRenderer.setMap(map);
 
 }
 window.initMap = initMap;

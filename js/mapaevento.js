@@ -46,7 +46,7 @@ function initMap2()
         }
 
         
-
+        directionsRenderer.setMap(map);
 
 }
 window.initMap2 = initMap2;

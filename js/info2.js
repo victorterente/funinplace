@@ -22,20 +22,15 @@ window.onload = async function () {
                   </div> <!-- /.sample-thumb -->
                   <h4 class="consult-title">${information.evento_morada}</h4>
                   <p>${information.evento_desc}</p>
-                  <p>${information.lat1}</p>
-                  <p>${information.long1}</p>
-
+                  
                   </div> <!-- /.widget-item -->
               </div> <!-- /.col-md-4 -->
         `;
-        sessionStorage.setItem(evento) = 
+        evento = 
         {
             lat: (information.lat1),
-            lng: Number(information.long1),
+            lng: (information.long1),
         };
-          
-        console.log(information.lat1);  
-        console.log(information.long1);
         console.log(evento);
 
 

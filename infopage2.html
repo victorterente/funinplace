@@ -78,8 +78,9 @@
             </div> <!-- /.container -->
         </div> <!-- /.middle-content -->
         <script>
-        function calcRoute() 
+        function calcRoute2() 
     {
+        console.log(evento);
         if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -105,7 +106,7 @@
         });
       }
       </script>
-      <button onclick="calcRoute()" id="botaorota">Traçar caminho até evento</button>
+      <button onclick="calcRoute2()" id="botaorota">Traçar caminho até evento</button>
         
         
         <div id="map2"></div>
