@@ -346,6 +346,7 @@
     <script>
     function calcRoute() {
         var selectedMode = document.getElementById('mode').value;
+        
         if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {

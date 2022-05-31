@@ -28,7 +28,7 @@ window.onload = async function () {
                   </div> <!-- /.widget-item -->
               </div> <!-- /.col-md-4 -->
         `;
-        evento = 
+        sessionStorage.setItem(evento) = 
         {
             lat: (information.lat1),
             lng: Number(information.long1),
