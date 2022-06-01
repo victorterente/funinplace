@@ -13,6 +13,7 @@ var pos2 = {
 
 var directionsRenderer
 var directionsService 
+var marker
 // Initialize and add the map
 function initMap() 
 {
@@ -155,12 +156,12 @@ async function getMuseu(){
    autocomplete.bindTo('bounds', map);
 
    var infowindow1 = new google.maps.InfoWindow();
-   var marker1 = new google.maps.Marker({
+       var marker1 = new google.maps.Marker({
        map: map,
        anchorPoint: new google.maps.Point(0, -29)
    });
 
-   autocomplete.addListener ('place_changed', function() {
+       autocomplete.addListener ('place_changed', function() {
      infowindow1.close();
      marker1.setVisible(false);
      var place = autocomplete.getPlace();
@@ -198,50 +199,14 @@ async function getMuseu(){
      infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
      infowindow.open(map, marker1);
 
- });
-
+    });
+    ////////////////////////
  
 
-directionsRenderer.setMap(map);
+    directionsRenderer.setMap(map);
 
 }
 window.initMap = initMap;
-
-
-
-
-
- async function calculateAndDisplayRoute(directionsService, directionsRenderer){
-    
-     if (navigator.geolocation) {
-       navigator.geolocation.getCurrentPosition(
-         (position) => {
-           pos = {
-             lat: position.coords.latitude,
-             lng: position.coords.longitude,
-           };
-         },
-       );
-     } else {
-       // Browser doesn't support Geolocation
-       handleLocationError(false, infoWindow, map.getCenter());
-     }
- 
-     console.log(pos)
- 
-     directionsService
-    .route({
-        origin: pos,
-        destination: marcadorselecionado,
-        travelMode: 'DRIVING',
-        
-
-    })
-
-    .then((response) => {
-        directionsRenderer.setDirections(response);
-    })
- }
 
  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
