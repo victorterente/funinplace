@@ -14,6 +14,7 @@ var pos2 = {
 var directionsRenderer
 var directionsService 
 var marker
+var map;
 // Initialize and add the map
 function initMap() 
 {
@@ -79,14 +80,14 @@ async function getDisco(){
 
     for (i = 0; i < discoteca.length; i++) {
         marker = new google.maps.Marker({
-            position: new google.maps.LatLng(discoteca[i].lat, discoteca[i].long),
+            position: new google.maps.LatLng(discoteca[i].lat1, discoteca[i].long1),
             map: map
         });
-
+        console.log(marker);
         marker.setIcon('./images/icons8-disco-ball-48.png')
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
-                marcadorselecionado = new google.maps.LatLng(discoteca[i].lat, discoteca[i].long);
+                marcadorselecionado = new google.maps.LatLng(discoteca[i].lat1, discoteca[i].long1);
                 infowindow.setContent(discoteca[i].local_nome);
                 infowindow.open(map, marker);
             }
@@ -104,14 +105,14 @@ async function getRestaurantes(){
 
   for (i = 0; i < restaurant.length; i++) {
     marker = new google.maps.Marker({
-          position: new google.maps.LatLng(restaurant[i].lat, restaurant[i].long),
+          position: new google.maps.LatLng(restaurant[i].lat1, restaurant[i].long1),
           map: map,
       });
 
       marker.setIcon('./images/restaurant.png')
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
           return function() {
-              marcadorselecionado = new google.maps.LatLng(restaurant[i].lat, restaurant[i].long);
+              marcadorselecionado = new google.maps.LatLng(restaurant[i].lat1, restaurant[i].long1);
               infowindow.setContent(restaurant[i].local_nome);
               infowindow.open(map, marker);
           }
@@ -129,14 +130,14 @@ async function getMuseu(){
 
   for (i = 0; i < museu.length; i++) {
       marker = new google.maps.Marker({
-          position: new google.maps.LatLng(museu[i].lat, museu[i].long),
+          position: new google.maps.LatLng(museu[i].lat1, museu[i].long1),
           map: map
       });
 
       marker.setIcon('./images/museu.png')
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
           return function() {
-              marcadorselecionado = new google.maps.LatLng(museu[i].lat, museu[i].long);
+              marcadorselecionado = new google.maps.LatLng(museu[i].lat1, museu[i].long1);
               infowindow.setContent(museu[i].local_nome);
               infowindow.open(map, marker);
           }
