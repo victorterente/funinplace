@@ -33,7 +33,7 @@ window.onload = async function () {
                 },
                 success: function(result) {
                     console.log("SUCCESS : ", result);
-                    window.location.href = "events.html"
+                    window.location.href = "index.html"
     
     
     

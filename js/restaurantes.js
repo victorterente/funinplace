@@ -15,7 +15,7 @@ window.onload = async function () {
                 <div class="widget-item">
                     <h3 class="widget-title">${restaurante.local_nome}</h3>
                     <div class="sample-thumb">
-                        <img src="images/about_1.jpg" alt="about us" title="about us">
+                        <img src="${restaurante.local_img}" alt="about us" title="about us">
                     </div> <!-- /.sample-thumb -->
                     <h4 class="consult-title">${restaurante.local_morada}</h4>
                     <p>${restaurante.local_desc}</p>
