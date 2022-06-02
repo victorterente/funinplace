@@ -84,16 +84,20 @@ $(document).ready(function() {
             },
             success: function(result) {
                 console.log("SUCCESS : ", result);
-                window.location.href = "events.html"
+                //window.location.href = "events.html"
 
+                console.log(result)
 
-
-                window.localStorage.setItem('user', JSON.stringify(result));
+                sessionStorage.setItem('user', JSON.stringify(result));
                 $("#btnLogin").prop("disabled", false);
             }
 
+            
+
         });
 
+        
+              
     });
 
 
