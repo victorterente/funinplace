@@ -84,11 +84,12 @@ $(document).ready(function() {
             },
             success: function(result) {
                 console.log("SUCCESS : ", result);
-                //window.location.href = "events.html"
+                
 
                 console.log(result)
 
                 sessionStorage.setItem('user', JSON.stringify(result));
+                window.location.href = "index.html"
                 $("#btnLogin").prop("disabled", false);
             }
 

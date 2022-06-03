@@ -236,8 +236,8 @@ hr {
 }
 
 .main-menu {
-    text-align: right;
-    float: right;
+    text-align: left;
+    float: left;
 }
 
 .main-menu ul li {
@@ -521,7 +521,7 @@ h3.widget-title {
     padding: 12px;
     text-align: center;
     text-transform: uppercase;
-    font-size: 140px;
+    
     font-weight: 700;
     margin-top: 15px;
 }
