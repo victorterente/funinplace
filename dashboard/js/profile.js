@@ -30,11 +30,23 @@ window.onload = async function () {
         </a>
       </li>
       <li class="nav-item">
-        <a href="mapamanag.html" class="nav-link">
+        <a href="gerireventos.html" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>Gerir Eventos</p>
         </a>
-      </li>`
+      </li>
+      <li class="nav-item">
+      <a href="criarlocal.html" class="nav-link">
+        <i class="far fa-circle nav-icon"></i>
+        <p>Adicionar local</p>
+      </a>
+    </li>
+    <li class="nav-item">
+    <a href="criarevento.html" class="nav-link">
+      <i class="far fa-circle nav-icon"></i>
+      <p>Adicionar evento</p>
+    </a>
+  </li>`
     }
     else if(moderador == true){
         html += `
@@ -49,10 +61,34 @@ window.onload = async function () {
           <i class="far fa-circle nav-icon"></i>
           <p>Gerir Eventos</p>
         </a>
-      </li>`
+      </li>
+      <li class="nav-item">
+      <a href="criarlocal.html" class="nav-link">
+        <i class="far fa-circle nav-icon"></i>
+        <p>Adicionar local</p>
+      </a>
+    </li>
+    <li class="nav-item">
+    <a href="criarevento.html" class="nav-link">
+      <i class="far fa-circle nav-icon"></i>
+      <p>Adicionar evento</p>
+    </a>
+  </li>`
 }
+getUserName();
 
 
 
     document.getElementById("dashboard").innerHTML = html;
+}
+function getUserName(){
+    
+    for (var i =0 ; i< (user).length; i++) {
+    console.log(user[i]);
+    /*if(user[i] == "pessoa_nome")
+    var nome = user[i+1];
+    console.log((nome));
+
+    return nome;*/
+    }
 }
