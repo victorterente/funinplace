@@ -1,5 +1,6 @@
 
 var perfilid = sessionStorage.getItem('userid');
+console.log(perfilid);
 
 
 window.onload = async function () {
@@ -17,27 +18,26 @@ $.ajax(
       let html = ""  
       for (let i in data)
                   {
-                      html += `<span class="bg-secondary p-1 px-4 rounded text-white">${data[i].pessoa_role}</span>
+                      html += `
+                      <div class="text-center">
+                      <img src="https://wp-content.bluebus.com.br/wp-content/uploads/2017/03/31142426/twitter-novo-avatar-padrao-2017-bluebus.png" width="100" class="rounded-circle">
+                    </div>
+                      <div class="text-center mt-3" >
+                      <span class="bg-secondary p-1 px-4 rounded text-white">${data[i].pessoa_role}</span>
                       <h5 class="mt-2 mb-0">${data[i].pessoa_nome}</h5>
-                      <span>UI/UX Designer</span>
+                      <span>${data[i].pessoa_email}</span>
                       
                       <div class="px-4 mt-1">
-                          <p class="fonts">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                      
+                          <p class="fonts"> ${data[i].pessoa_nome} , utilizador do sexo ${data[i].pessoa_genero} , nascido a ${data[i].pessoa_dtnasc}  </p>
+                          <p class="fonts">Reside em : ${data[i].pessoa_morada}</p>
                       </div>
                       
-                       <ul class="social-list">
-                          <li><i class="fa fa-facebook"></i></li>
-                          <li><i class="fa fa-dribbble"></i></li>
-                          <li><i class="fa fa-instagram"></i></li>
-                          <li><i class="fa fa-linkedin"></i></li>
-                          <li><i class="fa fa-google"></i></li>
-                      </ul>
+              
                       
                       <div class="buttons">
                           
-                          <button class="btn btn-outline-primary px-4">Message</button>
-                          <button class="btn btn-primary px-4 ms-3">Contact</button>
+                          <button class="btn btn-outline-primary px-4" id="p1" onclick="copyToClipboard('#p1')" >${data[i].pessoa_tlm}</button>
+                          <button class="btn btn-primary px-4 ms-3"    id="p2" onclick="copyToClipboard('#p2')" >${data[i].pessoa_email}</button>
                       </div>
                       `
                   }
@@ -48,4 +48,13 @@ $.ajax(
     {   
       alert(JSON.stringify(error));   
     }  
+}
+
+function copyToClipboard(element) {
+  var $temp = $("<input>");
+  $("body").append($temp);
+  $temp.val($(element).text()).select();
+  document.execCommand("copy");
+  alert("Copied to clipboard");
+  $temp.remove();
 }
