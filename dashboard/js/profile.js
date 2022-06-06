@@ -75,7 +75,7 @@ window.onload = async function () {
     </a>
   </li>`
 }
-getUserName();
+
 
 
 
@@ -83,12 +83,4 @@ getUserName();
 }
 function getUserName(){
     
-    for (var i =0 ; i< (user).length; i++) {
-    console.log(user[i]);
-    /*if(user[i] == "pessoa_nome")
-    var nome = user[i+1];
-    console.log((nome));
-
-    return nome;*/
     }
-}

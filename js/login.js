@@ -87,7 +87,8 @@ $(document).ready(function() {
                 
 
                 console.log(result)
-
+                console.log(result.pessoa_id)
+                sessionStorage.setItem('userid', JSON.stringify(result.pessoa_id));
                 sessionStorage.setItem('user', JSON.stringify(result));
                 window.location.href = "index.html"
                 $("#btnLogin").prop("disabled", false);

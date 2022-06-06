@@ -23,7 +23,7 @@ window.onload = async function () {
             dataType: 'json',
     
             error: function (result){
-                alert("Username or Password are Incorrect")
+                alert("Fill in all blank spaces")
                 console.log("ERROR: ", result)
     
                 $("#CriarLocal").prop("disabled", false);

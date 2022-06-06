@@ -63,7 +63,11 @@ $(document).ready(
                     <th>${result[i].pessoa_email}</th>
                     <th>${result[i].pessoa_tlm}</th>
                     <th>${result[i].pessoa_morada}</th>
-                    ${buttons}</tr>`
+                    <td><div class="btn-group">
+                          <button type="button" href= "utilizadores.html" id = "${result[i].pessoa_id}" onclick= "removepessoa(this.id)" class="btn btn-danger">Remover</button>
+                          
+                        </div>
+                        </div></tr>`
                 }
 
                 tabela.innerHTML = html
@@ -73,3 +77,13 @@ $(document).ready(
     }
 
 );
+function removepessoa(id){
+    $.ajax({
+        url: "https://cors-anywhere.herokuapp.com/https://funinplace.herokuapp.com/local/delete/"+id,
+        type: "delete",
+        dataType: 'json',
+        success: function(result) {
+            console.log(result);
+        }
+    });
+  }

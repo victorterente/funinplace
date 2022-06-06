@@ -24,7 +24,7 @@ $('#CriarEvento').on('click', function(event) {
         dataType: 'json',
 
         error: function (result){
-            alert("Username or Password are Incorrect")
+            alert("Fill in all blank spaces")
             console.log("ERROR: ", result)
 
             $("#CriarEvento").prop("disabled", false);
