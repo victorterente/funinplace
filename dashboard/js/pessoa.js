@@ -64,7 +64,7 @@ $(document).ready(
                     <th>${result[i].pessoa_tlm}</th>
                     <th>${result[i].pessoa_morada}</th>
                     <td><div class="btn-group">
-                          <button type="button" href= "utilizadores.html" id = "${result[i].pessoa_id}" onclick= "removepessoa(${result[i].pessoa_id}) ; Refresh()" class="btn btn-danger">Remover</button>
+                          <button type="button" href= "utilizadores.html" id = "${result[i].pessoa_id}" onclick= "removepessoa(${result[i].pessoa_id})" class="btn btn-danger">Remover</button>
                           
                         
                         </div>
@@ -88,3 +88,6 @@ function removepessoa(id){
         }
     });
   }
+  function Refresh() {
+    window.parent.location = window.parent.location.href;
+}

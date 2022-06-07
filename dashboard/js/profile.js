@@ -53,12 +53,7 @@ window.onload = async function () {
       <p>Adicionar evento</p>
     </a>
   </li>
-  <li class="nav-item">
-    <a href="verevento.html" class="nav-link">
-      <i class="far fa-circle nav-icon"></i>
-      <p>Inscrições em eventos</p>
-    </a>
-  </li>`
+  `
     }
     else if(moderador == true){
         html += `

@@ -36,7 +36,7 @@ $(document).ready(
                     <th>${contentString} </th>
                     <td>
                       <div class="btn-group">
-                            <button type="button" id = "${result[i].evento_id}" onclick= "removevento(${result[i].evento_id}) ; Refresh()" class="btn btn-danger">Remover</button>
+                            <button type="button" id = "${result[i].evento_id}" onclick= "removevento(${result[i].evento_id})" class="btn btn-danger">Remover</button>
 
                       </div>
                     </tr>`

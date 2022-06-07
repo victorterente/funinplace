@@ -19,13 +19,16 @@ $(document).ready(
                 {
                     
                     html += `<tr>
-                    <th>${result[i].pessoa_id}</th>
+                    <th>${result[i].inscricao_id}</th>
                     <th>${result[i].pessoa_nome}</th>
                     <th>${result[i].evento_nome}</th>
-                
                     <td>
-                      
-                    </tr>`
+                    <div class="btn-group">
+                          <button type="button" id = "${result[i].inscricao_id}" onclick="removereserva(${result[i].inscricao_id})" class="btn btn-danger">Cancelar Inscrição</button>
+
+                    </div>
+                  </tr>`
+                  console.log(result[i].inscricao_id);
                     
 
                 }
@@ -36,11 +39,20 @@ $(document).ready(
 
         });
     }
-
-
-    
-
 );
+function removereserva(id){
+    $.ajax({
+        url: "https://cors-anywhere.herokuapp.com/https://funinplace.herokuapp.com/reserva/delete/"+id,
+        type: "delete",
+        dataType: 'json',
+        success: function(result) {
+            console.log(result);
+        }
+    });
+  }
+  function Refresh() {
+    window.parent.location = window.parent.location.href;
+}
 
 
 

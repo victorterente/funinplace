@@ -6,7 +6,8 @@ window.onload = async function () {
     let html = ``
         
   if (user != null){
-        html += `<li><a href="dashboard/admin.html">Dashboard</a></li>
+        html += `
+        <li><a href="dashboard/admin.html">Dashboard</a></li>
         <li><a onclick="logout()">Lougout</a></li>`
     }
     else if(user == null){

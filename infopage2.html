@@ -87,12 +87,45 @@
                 <script src="js\info2.js"></script>
                
                 <div><main id="info2"></main>
-                   
-                    <section id="boas"></section>
+                    
+
+
+                    <section><button class="button" onclick="reservarEvento()" value="Inscrever">Inscrever</button></section>
+                    
                 </div>
+       <style>
+       .button{
+        background-color: #b16657; 
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+    }
+
+   .button:hover,
+   .button:focus {
+       background-color: #b16657;
+       box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+   }
+
+   .button:focus {
+       box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+   }
+
+   .button:active {
+       background-color: #b16657;
+       box-shadow: none;
+   }
+   </style> 
+   
+   
+
+
                 
-                
-            </div> <!-- /.container -->
+         </div> <!-- /.container -->
         </div> <!-- /.middle-content -->
         <script>
         function calcRoute2() 
@@ -160,33 +193,41 @@
         <script src="js/functions.js"></script>
 
         <script>
-            async function reservarEvento(eventoId, pessoaId){
-      try {
-        
+            async function reservarEvento(){
+
           pessoaId = sessionStorage.getItem("userid");
           eventoId = sessionStorage.getItem("Id");
           let obj = {eventoId, pessoaId}
-          let reservas = await $.ajax({
-            url: `https://cors-anywhere.herokuapp.com/https://funinplace.herokuapp.com/reserva/reservar`,
-            method: "post",
-            dataType: "json",
-            data: JSON.stringify(obj),
-            contentType: "application/json",
+          if(pessoaId != null){  
+            try {
+            if(pessoaId != null){}
+            let reservas = await $.ajax({
+              url: `https://cors-anywhere.herokuapp.com/https://funinplace.herokuapp.com/reserva/reservar`,
+              method: "post",
+              dataType: "json",
+              data: JSON.stringify(obj),
+              contentType: "application/json",
+            
+              error: function (result){
+                  alert("Reserva efetuada")
+                  console.log("ERROR: ", result)
+            
+
+              }
+            });
+                alert("Reserva efetuada com sucesso");
            
-            error: function (result){
-                alert("Reserva efetuada com sucesso")
-                console.log("ERROR: ", result)
-    
+              } catch (err) {
+               
+              }
+           
+            }else if(pessoaId == null){
+                alert("Faça login para se inscrever");
+            }
+               
                
             }
-      });
-          alert("Reserva efetuada com sucesso");
-  
-        } catch (err) {
-          document.getElementById("msg").innerText = err.responseJSON.msg;
-        }
-    }
-          </script>
-         
+                  </script>
+                 
      </body>
 </html>

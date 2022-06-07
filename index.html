@@ -21,6 +21,8 @@
     <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
     <script src="js/mapa.js"></script>
     <script src="js/barra.js"></script>
+    <script src="openlayers.org/en/v4.1.0/build/ol.js" type="text/javascript"></script>
+    <script src="openlayers.org/api/OpenLayers.js"></script>
 </head>
 
 <body>
@@ -247,34 +249,20 @@
       
             /* CSS */
              .button{
-                 background-color: #0095ff;
-                 border: 1px solid transparent;
-                 border-radius: 3px;
-                 box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
-                 box-sizing: border-box;
-                 color: #fff;
-                 cursor: pointer;
-                 display: inline-block;
-                 font-family: -apple-syst5em,system-ui,"Segoe UI","Liberation Sans",sans-serif;
-                 font-size: 13px;
-                 font-weight: 400;
-                 line-height: 1.15385;
-                 margin: 0;
-                 outline: none;
-                 padding: 8px .8em;
-                 position: relative;
+                 background-color: #b16657; 
+                 border: none;
+                 color: white;
+                 padding: 15px 32px;
                  text-align: center;
                  text-decoration: none;
-                 user-select: none;
-                 -webkit-user-select: none;
-                 touch-action: manipulation;
-                 vertical-align: baseline;
-                 white-space: nowrap;
+                 display: inline-block;
+                 font-size: 12px;
              }
       
             .button:hover,
             .button:focus {
-                background-color: #07c;
+                background-color: #b16657;
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
             }
       
             .button:focus {
@@ -282,7 +270,7 @@
             }
       
             .button:active {
-                background-color: #0064bd;
+                background-color: #b16657;
                 box-shadow: none;
             }
             .controls {
@@ -308,7 +296,7 @@
             }
       
             #pac-input:focus {
-              border-color: #4d90fe;
+              border-color: #b16657;
             }
       
             .pac-container {
@@ -317,7 +305,7 @@
       
             #type-selector {
               color: #fff;
-              background-color: #4d90fe;
+              background-color: #b16657;
               padding: 5px 11px 0px 11px;
             }
       
@@ -330,9 +318,10 @@
 </style>
     <div> 
             <!--The div element for the map -->
+            <a id="vermapa"></a>
             <input id="pac-input" class="controls" type="text" placeholder="Search Box">
             
-            <div id="map">
+            <div id="map" style="width: 1400px ;left: 250px;">
             </div>
             <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAeXJMCul0dV0qlry9bSDTx9K9dKRLJZSY&callback=initMap"></script>
 
@@ -370,20 +359,27 @@
       }
       </script>
     
-    <div>
-        <strong>Mode of Travel: </strong>
-        <select id="mode">
-            <option value="DRIVING">Conduzir</option>
+    <div style="padding-left: 250px;">
+        <strong>Modo de viagem: </strong>
+        
+        <select id="mode" class="button">
+            <option value="DRIVING">Carro</option>
             <option value="WALKING">A pé</option>
             <option value="BICYCLING">Bicicleta</option>
-            <option value="TRANSIT">Trasportes</option>
+            <option value="TRANSIT">Transportes</option>
         </select>
-        </div>
-    <button onclick="calcRoute()" id="botaorota">CalcularRota</button>
+        
+        <button class = "button" onclick="calcRoute()" id="botaorota">CalcularRota</button>
+
+    </div>
+    
     <script src="js/mapa.js"></script>
-    <button id="Discoteca/bar">Discotecas/Bares</button>
+    
+    
 
-
+    <br>
+    <br>
+    <br>
 
     <div class="site-footer">
         <div class="container">

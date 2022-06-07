@@ -38,10 +38,7 @@ window.onload = async function () {
            
               document.getElementById("info2").innerHTML = html18;
 
-              html1 += `<section>
-              <p><input type="button"  onclick="reservarEvento()" value="Inscrever"></p></section>`;
               
-              document.getElementById("boas").innerHTML = html1;
             
 
               evento = 

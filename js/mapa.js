@@ -15,6 +15,7 @@ var directionsRenderer
 var directionsService 
 var marker
 var map;
+
 // Initialize and add the map
 function initMap() 
 {
@@ -38,7 +39,7 @@ function initMap()
     const locationButton = document.createElement("button");
 
     locationButton.textContent = "Localização atual";
-    locationButton.classList.add("custom-map-control-button");
+    locationButton.classList.add("button");
     map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
     locationButton.addEventListener("click", () => {
         // Try HTML5 geolocation.
@@ -88,8 +89,9 @@ async function getDisco(){
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
                 marcadorselecionado = new google.maps.LatLng(discoteca[i].lat1, discoteca[i].long1);
-                infowindow.setContent(discoteca[i].local_nome);
                 infowindow.open(map, marker);
+                infowindow.setContent(`<a href="infopage.html" onclick="Id(${discoteca[i].local_id})" class="slider-btn">Visitar ${discoteca[i].local_nome} </a>`);
+                
             }
         })(marker, i));
     }
@@ -113,7 +115,7 @@ async function getRestaurantes(){
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
           return function() {
               marcadorselecionado = new google.maps.LatLng(restaurant[i].lat1, restaurant[i].long1);
-              infowindow.setContent(restaurant[i].local_nome);
+              infowindow.setContent(`<a href="infopage.html" onclick="Id(${restaurant[i].local_id})" class="slider-btn">Visitar ${restaurant[i].local_nome} </a>`);
               infowindow.open(map, marker);
           }
       })(marker, i));
@@ -138,7 +140,7 @@ async function getMuseu(){
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
           return function() {
               marcadorselecionado = new google.maps.LatLng(museu[i].lat1, museu[i].long1);
-              infowindow.setContent(museu[i].local_nome);
+              infowindow.setContent(`<a href="infopage.html" onclick="Id(${museu[i].local_id})" class="slider-btn">Visitar ${museu[i].local_nome} </a>`);
               infowindow.open(map, marker);
           }
       })(marker, i));
@@ -147,6 +149,9 @@ async function getMuseu(){
   getDisco();
   getRestaurantes();
   getMuseu();
+
+
+   
   
   
    //search bar
@@ -219,3 +224,8 @@ window.initMap = initMap;
 }
   
 
+function Id(id) {
+    sessionStorage.setItem("Id", id);
+    window.location = "infopage1.html";
+    window.location = "infopage2.html";
+  }
