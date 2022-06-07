@@ -23,7 +23,7 @@ window.onload = async function () {
             dataType: 'json',
     
             error: function (result){
-                alert("Fill in all blank spaces")
+                alert("Something went wrong")
                 console.log("ERROR: ", result)
     
                 $("#CriarLocal").prop("disabled", false);

@@ -24,7 +24,7 @@ $('#CriarEvento').on('click', function(event) {
         dataType: 'json',
 
         error: function (result){
-            alert("Fill in all blank spaces")
+            alert("Something went wrong")
             console.log("ERROR: ", result)
 
             $("#CriarEvento").prop("disabled", false);
