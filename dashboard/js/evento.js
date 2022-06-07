@@ -36,7 +36,7 @@ $('#CriarEvento').on('click', function(event) {
 
 
 
-            window.localStorage.setItem('user', JSON.stringify(result));
+            
             $("#CriarEvento").prop("disabled", false);
         }
 

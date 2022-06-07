@@ -35,7 +35,7 @@ window.onload = async function () {
     
     
     
-                window.localStorage.setItem('user', JSON.stringify(result));
+               
                 $("#CriarLocal").prop("disabled", false);
             }
     
