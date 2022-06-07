@@ -13,7 +13,7 @@ window.onload = async function () {
         method: "get",
         dataType: "json",
       });
-      
+      let html1 = "";
       let html18 = "<div></div> ";
       
       for (let information of informations) {
@@ -35,10 +35,13 @@ window.onload = async function () {
               
             `;
        
-            html18 += `<section>
-            <p><input type="button"  onclick="reservarCampo()" value="Inscrever"></p></section>`;
+           
               document.getElementById("info2").innerHTML = html18;
-             
+
+              html1 += `<section>
+              <p><input type="button"  onclick="reservarEvento()" value="Inscrever"></p></section>`;
+              
+              document.getElementById("boas").innerHTML = html1;
             
 
               evento = 
@@ -57,7 +60,8 @@ window.onload = async function () {
     } catch (err) {
       console.log(err);
     }
-    async function reservarCampo(eventoid, pessoaId){
+
+    async function reservarEvento(eventoid, pessoaId){
       try {
         semana = document.getElementById("info2").value;
         console.log(semana);

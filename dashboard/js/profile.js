@@ -13,7 +13,13 @@ window.onload = async function () {
       <i class="far fa-circle nav-icon"></i>
       <p>Perfil</p>
     </a>
-  </li>`
+  </li>
+  <li class="nav-item">
+  <a href="verevento.html" class="nav-link">
+    <i class="far fa-circle nav-icon"></i>
+    <p>Inscrições em eventos</p>
+  </a>
+</li>`
         
   if (admin == true){
         html += `
@@ -45,6 +51,12 @@ window.onload = async function () {
     <a href="criarevento.html" class="nav-link">
       <i class="far fa-circle nav-icon"></i>
       <p>Adicionar evento</p>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a href="verevento.html" class="nav-link">
+      <i class="far fa-circle nav-icon"></i>
+      <p>Inscrições em eventos</p>
     </a>
   </li>`
     }

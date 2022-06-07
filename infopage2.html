@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="css/templatemo_style.css">
         <script src="js/barra.js"></script>
         <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+        <script src="js/info2.js"></script>
     </head>
     <body>
         <div class="site-header">
@@ -86,8 +87,8 @@
                 <script src="js\info2.js"></script>
                
                 <div><main id="info2"></main>
-                    <select name="information" id="information"></select>
-                    <section id="info2"></section>
+                   
+                    <section id="boas"></section>
                 </div>
                 
                 
@@ -157,6 +158,35 @@
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
         <script src="js/functions.js"></script>
+
+        <script>
+            async function reservarEvento(eventoId, pessoaId){
+      try {
+        
+          pessoaId = sessionStorage.getItem("userid");
+          eventoId = sessionStorage.getItem("Id");
+          let obj = {eventoId, pessoaId}
+          let reservas = await $.ajax({
+            url: `https://cors-anywhere.herokuapp.com/https://funinplace.herokuapp.com/reserva/reservar`,
+            method: "post",
+            dataType: "json",
+            data: JSON.stringify(obj),
+            contentType: "application/json",
+           
+            error: function (result){
+                alert("Reserva efetuada com sucesso")
+                console.log("ERROR: ", result)
+    
+               
+            }
+      });
+          alert("Reserva efetuada com sucesso");
+  
+        } catch (err) {
+          document.getElementById("msg").innerText = err.responseJSON.msg;
+        }
+    }
+          </script>
          
      </body>
 </html>
