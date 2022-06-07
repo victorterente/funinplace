@@ -12,7 +12,7 @@ $(document).ready(
                 console.log(obj);
                 let tabela = document.querySelector("#tableuser")
                 let html = ""
-                let buttons = 
+                /*let buttons = 
                 "<td><div class='btn-group'>" +
                 "<button type='button' class='btn btn-danger'>Action</button>" +
                 "<button type='button' class='btn btn-danger dropdown-toggle dropdown-hover dropdown-icon' data-toggle='dropdown'>" +
@@ -52,7 +52,7 @@ $(document).ready(
                     "<a class='dropdown-item' href='#'>Separated link</a>" +
                     "</div>" +
                 "</div>" +
-                "<div class='btn-group'>" ;
+                "<div class='btn-group'>" ;*/
                 for (let i in result)
                 {
                     html += `<tr>
@@ -64,7 +64,7 @@ $(document).ready(
                     <th>${result[i].pessoa_tlm}</th>
                     <th>${result[i].pessoa_morada}</th>
                     <td><div class="btn-group">
-                          <button type="button" href= "utilizadores.html" id = "${result[i].pessoa_id}" onclick= "removepessoa(this.id)" class="btn btn-danger">Remover</button>
+                          <button type="button" href= "utilizadores.html" id = "${result[i].pessoa_id}" onclick= "removepessoa(${result[i].pessoa_id})" class="btn btn-danger">Remover</button>
                           
                         
                         </div>
@@ -80,7 +80,7 @@ $(document).ready(
 );
 function removepessoa(id){
     $.ajax({
-        url: "https://cors-anywhere.herokuapp.com/https://funinplace.herokuapp.com/local/delete/"+id,
+        url: "https://cors-anywhere.herokuapp.com/https://funinplace.herokuapp.com/pessoa/delete/"+id,
         type: "delete",
         dataType: 'json',
         success: function(result) {

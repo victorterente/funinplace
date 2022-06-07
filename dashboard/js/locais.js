@@ -10,9 +10,9 @@ $(document).ready(
                 $('#name').text(result)
                 var obj = JSON.stringify(result);
                 console.log(obj);
-                let tabela = document.querySelector("#tableembpending")
+                let tabela3 = document.querySelector("#tableembpending2")
                 let html = ""
-                let buttons = 
+                /*let buttons = 
                 `<td><div class="btn-group">
                           <button type="button" class="btn btn-danger">Rejeitar</button>
                           <button type="button" class="btn btn-danger dropdown-toggle dropdown-hover dropdown-icon" data-toggle="dropdown">
@@ -36,7 +36,7 @@ $(document).ready(
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Separated link</a>
                           </div>
-                        </div>`;
+                        </div>`;*/
                 for (let i in result)
                 {
                     var contentString = result[i].lat + ", " + result[i].long;
@@ -48,13 +48,13 @@ $(document).ready(
                     <th>${result[i].local_tlm}</th>
                     <th>${contentString} </th>
                     <td><div class="btn-group">
-                          <button type="button" id = "${result[i].local_id}" onclick= "removelocal(this.id)" class="btn btn-danger">Remover</button>
+                          <button type="button" id = "${result[i].local_id}" onclick= "removelocal(${result[i].local_id})" class="btn btn-danger">Remover</button>
                         
                         </div>
                     </tr>`
                 }
 
-                tabela.innerHTML = html
+                tabela3.innerHTML = html
             }
 
         });

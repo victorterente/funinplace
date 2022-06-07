@@ -10,7 +10,7 @@ $(document).ready(
                 $('#name').text(result)
                 var obj = JSON.stringify(result);
                 console.log(obj);
-                let tabela = document.querySelector("#tableembpending1")
+                let tabela2 = document.querySelector("#tableembpending1")
                 let html = ""
                 /*let buttons = 
                 `<td><div class="btn-group">
@@ -35,7 +35,7 @@ $(document).ready(
                     <th>${contentString} </th>
                     <td>
                       <div class="btn-group">
-                            <button type="button" id = "${result[i].evento_id}" onclick= "removevento(this.id)" class="btn btn-danger">Remover</button>
+                            <button type="button" id = "${result[i].evento_id}" onclick= "removevento(${result[i].evento_id})" class="btn btn-danger">Remover</button>
 
                       </div>
                     </tr>`
@@ -44,7 +44,7 @@ $(document).ready(
                 }
                 
 
-                tabela.innerHTML = html
+                tabela2.innerHTML = html
             }
 
         });
