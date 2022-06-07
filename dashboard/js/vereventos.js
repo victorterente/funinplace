@@ -13,7 +13,7 @@ $(document).ready(
                 $('#name').text(result)
                 var obj = JSON.stringify(result);
                 console.log(obj);
-                let tabela2 = document.querySelector("#tableembpending1")
+                let tabela2 = document.querySelector("#tableembpending4")
                 let html = ""
                 for (let i in result)
                 {
