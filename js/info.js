@@ -22,7 +22,7 @@ window.onload = async function () {
                   </div> <!-- /.sample-thumb -->
                   <h4 class="consult-title">${information.local_morada}</h4>
                   <p>${information.local_desc}</p>
-                  
+                  <p>${information.local_tlm}</p>
                   </div> <!-- /.widget-item -->
               </div> <!-- /.col-md-4 -->
         `;
