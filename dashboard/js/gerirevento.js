@@ -31,7 +31,8 @@ $(document).ready(
                     <th>${result[i].evento_nome}</th>
                     <th>${result[i].evento_desc}</th>
                     <th>${result[i].evento_morada}</th>
-                    <th>${result[i].evento_tlm}</th>
+                    <th>${result[i].evento_cap}</th>
+                    <th>${result[i].evento_geo}</th>
                     <th>${contentString} </th>
                     <td>
                       <div class="btn-group">
