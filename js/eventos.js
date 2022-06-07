@@ -35,4 +35,5 @@ window.onload = async function () {
 function Id(id) {
     sessionStorage.setItem("Id", id);
     window.location = "infopage2.html";
+    window.location = "index.html";
   }

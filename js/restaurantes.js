@@ -33,6 +33,7 @@ window.onload = async function () {
   function Id(id) {
     sessionStorage.setItem("Id", id);
     window.location = "infopage.html";
+    window.location = "index.html";
   }
 
 

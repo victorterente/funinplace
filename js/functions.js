@@ -6,6 +6,10 @@ function reply_click(clicked_id)
     console.log(clicked_id);
 }
 
-
+function Id(id) {
+    sessionStorage.setItem("Id", id);
+    window.location = "infopage.html";
+    window.location = "index.html";
+  }
 
     
