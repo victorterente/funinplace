@@ -49,7 +49,7 @@ $(document).ready(
                     <th>${result[i].local_geo}</th>
                     <th>${contentString} </th>
                     <td><div class="btn-group">
-                          <button type="button" id = "${result[i].local_id}" onclick= "removelocal(${result[i].local_id})" class="btn btn-danger">Remover</button>
+                          <button type="button" id = "${result[i].local_id}" onclick= "removelocal(${result[i].local_id}) ; Refresh()" class="btn btn-danger">Remover</button>
                         
                         </div>
                     </tr>`
