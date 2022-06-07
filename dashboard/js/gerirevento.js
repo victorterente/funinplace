@@ -33,16 +33,12 @@ $(document).ready(
                     <th>${result[i].evento_morada}</th>
                     <th>${result[i].evento_tlm}</th>
                     <th>${contentString} </th>
-                    <td><div class="btn-group">
-                          <button type="button" id = "${result[i].evento_id}" onclick= "removevento(this.id)" class="btn btn-danger">Remover</button>
-                          <button type="button" class="btn btn-danger dropdown-toggle dropdown-hover dropdown-icon" data-toggle="dropdown">
-                            <span class="sr-only">Toggle Dropdown</span>
-                          </button>
-                          <div class="dropdown-menu" role="menu">
-                            <a class="dropdown-item" href="#">Remover</a>
-                          </div>
-                        </div>
-                        </div></tr>`
+                    <td>
+                      <div class="btn-group">
+                            <button type="button" id = "${result[i].evento_id}" onclick= "removevento(this.id)" class="btn btn-danger">Remover</button>
+
+                      </div>
+                    </tr>`
                     
 
                 }

@@ -49,14 +49,9 @@ $(document).ready(
                     <th>${contentString} </th>
                     <td><div class="btn-group">
                           <button type="button" id = "${result[i].local_id}" onclick= "removelocal(this.id)" class="btn btn-danger">Remover</button>
-                          <button type="button" class="btn btn-danger dropdown-toggle dropdown-hover dropdown-icon" data-toggle="dropdown">
-                            <span class="sr-only">Toggle Dropdown</span>
-                          </button>
-                          <div class="dropdown-menu" role="menu">
-                            <a class="dropdown-item" href="#">Remover</a>
-                          </div>
+                        
                         </div>
-                        </div></tr>`
+                    </tr>`
                 }
 
                 tabela.innerHTML = html

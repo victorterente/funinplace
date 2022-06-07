@@ -66,8 +66,9 @@ $(document).ready(
                     <td><div class="btn-group">
                           <button type="button" href= "utilizadores.html" id = "${result[i].pessoa_id}" onclick= "removepessoa(this.id)" class="btn btn-danger">Remover</button>
                           
+                        
                         </div>
-                        </div></tr>`
+                    </tr>`
                 }
 
                 tabela.innerHTML = html
